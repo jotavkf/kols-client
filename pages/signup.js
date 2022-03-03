@@ -2,7 +2,9 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from "axios";
 
+
 export default function SignUp() {
+  const arrayDeEstados = [ "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO", ] 
 
   return (
     <div className='h-screen bg-gray-50 w-screen'>
@@ -16,10 +18,29 @@ export default function SignUp() {
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Crie sua conta</h2>
           </div>
+          {/* Usando o Formik. initialValues é os campos, tu estrutura por nomedocampo : "preenchimento (vazio)".
+          Depois vem o onSubmit, que é o que o botão roda.
+          Form e Field são componentes do Formik, que aí facilitam a manipulação */}
             <Formik
             initialValues={{
+                name: '',
+                lastName: '',
                 email: '',
+                birthdate: '',
+                cpf: '',
+                rg: '',
+                rgUF: '',
+                phone: '',
+                address: {
+                  street: '',
+                  number: '',
+                  district: '',
+                  city: '',
+                  zipcode: '',
+                  state: '',
+                },
                 password: '',
+                
             }}
             onSubmit={async function (values) {
                 try{
@@ -31,6 +52,139 @@ export default function SignUp() {
             >
             <Form className="mt-8 space-y-6" >
             <div className="rounded-md shadow-sm -space-y-px">
+                
+                <div>
+                    <Field
+                    id="name"
+                    name="name"
+                    placeholder="Nome"
+                    type="text"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Sobrenome"
+                    type="text"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="birthdate"
+                    name="birthdate"
+                    placeholder="Data de nascimento"
+                    type="date"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="cpf"
+                    name="cpf"
+                    placeholder="CPF"
+                    type="number"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="rg"
+                    name="rg"
+                    placeholder="RG"
+                    type="number"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field as="Select" 
+                    id="rgUF"
+                    name="rgUF"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    >
+                    {arrayDeEstados.map((cE) => {return <option key={cE} value={`${cE}`}>{cE}</option>})}
+                    </Field>
+                </div>
+                <div>
+                    <Field
+                    id="phone"
+                    name="phone"
+                    placeholder="Telefone"
+                    type="number"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="address.street"
+                    name="address.street"
+                    placeholder="Rua"
+                    type="text"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="address.number"
+                    name="address.number"
+                    placeholder="Número"
+                    type="number"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="address.district"
+                    name="address.district"
+                    placeholder="Distrito"
+                    type="text"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="address.city"
+                    name="address.city"
+                    placeholder="Cidade"
+                    type="text"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                    <Field
+                    id="address.zipcode"
+                    name="address.zipcode"
+                    placeholder="CEP"
+                    type="number"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    />
+                </div>
+                <div>
+                <div>
+                    <Field as="Select" 
+                    id="state"
+                    name="state"
+                    required={true}
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    >
+                    {arrayDeEstados.map((cE) => {return <option key={cE} value={`${cE}`}>{cE}</option>})}
+                    </Field>
+                </div>
+                </div>
                 <div>
                     <Field 
                     id="email"
