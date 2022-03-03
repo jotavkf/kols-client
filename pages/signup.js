@@ -1,6 +1,6 @@
 import { LockClosedIcon } from '@heroicons/react/solid'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import axios from "axios";
+import {api} from './api/api'
 
 
 export default function SignUp() {
@@ -45,7 +45,7 @@ export default function SignUp() {
             onSubmit={async function (values) {
                 try{
                 console.log(values)
-                await axios.post("http://localhost:4000/users/create-user", values);
+                await api.post("users/create-user", values);
                 } catch (e){console.log(e)}
                 
             }}
