@@ -45,7 +45,7 @@ export default function SignUp() {
             onSubmit={async function (values) {
                 try{
                 console.log(values)
-                await api.post("users/create-user", values);
+                await api.post("/users/create-user", values);
                 } catch (e){console.log(e)}
                 
             }}

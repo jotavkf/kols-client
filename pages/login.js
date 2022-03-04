@@ -27,7 +27,7 @@ export default function Login(){
                 onSubmit={async function (values){
                     try {
                         console.log(values)
-                        const response = await api.post("users/login", values);
+                        const response = await api.post("/users/login", values);
                         setLoggedInUser(response.data);
                         localStorage.setItem("loggedInUser", JSON.stringify(response.data));
 
