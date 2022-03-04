@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const apisURL = {
-  development: "http://localhost:4000/",
-  production: "https://kols-server.herokuapp.com/",
+  development: "http://localhost:4000",
+  production: "https://kols-server.herokuapp.com",
 };
 
 const api = axios.create({
