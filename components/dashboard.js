@@ -20,6 +20,7 @@ export default function Dashboard() {
         localStorage.removeItem('loggedInBusiness') // toda vez que clica no dashboard, limpa o localStorage
       } catch (error) {
         console.error(error);
+
       }
     }
     fetchBusiness();

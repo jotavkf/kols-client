@@ -5,8 +5,11 @@ import { useRouter } from 'next/router'
 import { AuthContext } from '../../contexts/authContext'
 import { useState, useContext } from 'react';
 import axios from "axios";
+import Link from "next/link";
+
 
 export default function Login() {
+
 
     const { setLoggedInUser } = useContext(AuthContext);
 
@@ -30,7 +33,6 @@ export default function Login() {
                                 const response = await api.post("/users/login", values);
                                 setLoggedInUser(response.data);
                                 localStorage.setItem("loggedInUser", JSON.stringify(response.data));
-
                             } catch (e) { console.log(e) }
                         }}>
                         <Form className="mt-8 space-y-6" >
@@ -56,10 +58,11 @@ export default function Login() {
                                 <button
                                     type="submit"
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
                                     <span
                                         className="absolute left-0 inset-y-0 flex items-center pl-3">
                                     </span>
-                                    Login
+                                    <Link href={"/business"}>Login</Link>
                                 </button>
                             </div>
                         </Form>

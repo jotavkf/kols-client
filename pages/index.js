@@ -11,7 +11,7 @@ export default function Home() {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Dashboard', href: '/dashboard' },
+    { name: 'Dashboard', href: '/business' },
     { name: 'Sign Up', href: '/signup' },
   ]
 

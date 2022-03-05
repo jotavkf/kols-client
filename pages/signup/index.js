@@ -1,6 +1,8 @@
 import { LockClosedIcon } from '@heroicons/react/solid'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { api } from '../api/api.js'
+import Link from "next/link";
+
 
 
 export default function SignUp() {
@@ -215,7 +217,8 @@ export default function SignUp() {
                     className="absolute left-0 inset-y-0 flex items-center pl-3">
                     <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
                   </span>
-                  Cadastrar
+                  <Link href={"/business"}>Cadastrar</Link>
+
                 </button>
               </div>
             </Form>
