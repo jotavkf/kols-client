@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+/* import { createContext, useState, useEffect } from "react";
 
 const BusinessContext = createContext({ business: "" });
 
@@ -14,7 +14,7 @@ function BusinessContextComponent(props) {
         if (parsedStoredBusiness.business) {
             loggedInBusiness(parsedStoredBusiness);
         }
-    }, [loggedInBusiness]);
+    }, []);
 
     return (
         <BusinessContext.Provider value={{ loggedInBusiness, setloggedInBusiness }}>
@@ -23,4 +23,4 @@ function BusinessContextComponent(props) {
     );
 }
 
-export { BusinessContext, BusinessContextComponent };
+export { BusinessContext, BusinessContextComponent }; */

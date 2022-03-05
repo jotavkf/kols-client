@@ -1,19 +1,26 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import { useRouter } from 'next/router'
 
-const navigation = [
-    { name: 'Dashboard', href: '/business', current: true },
-    { name: 'Produtos', href: '/business/produtos', current: false },
-    { name: 'Relatórios', href: '#', current: false },
-    { name: 'Movimentar Estoque', href: '#', current: false },
-]
+
+
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
 export default function NavbarBusiness() {
+    const router = useRouter()
+    const { id } = router.query
+
+    const navigation = [
+        { name: 'Dashboard', href: '/business', current: true },
+        { name: 'Produtos', href: `/business/${id}/products`, current: false },
+        { name: 'Relatórios', href: '#', current: false },
+        { name: 'Movimentar Estoque', href: '#', current: false },
+    ]
+
     return (
         <Disclosure as="nav" className="bg-gray-800">
             {({ open }) => (

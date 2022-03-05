@@ -12,7 +12,7 @@ function CreateBusiness() {
     // função para colocar no submmit do formulário
     async function createBusiness() {
         try {
-            const response = await api.post(`/business/create-business`);
+            const response = await api.post(`/business/create-business`, form);
         } catch (error) {
             console.error(error);
         }
@@ -22,8 +22,8 @@ function CreateBusiness() {
 
     return (
         <>
-            <NavbarDash />
             FORMULÁRIO PARA CRIAR UMA EMPRESA
+            <NavbarDash />
         </>
     )
 }
