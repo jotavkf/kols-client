@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState, useContext } from "react";
 import { api } from "../pages/api/api";
 
@@ -33,7 +34,7 @@ return(<>
 
     { !isLoading &&
     user.business.map((cE) => {
-        return (<div key={user.business._id}>Id da empresa: {cE._id} Minha empresa: {cE.corporateName}</div>)})}
+        return (<div key={user.business._id}>Id da empresa: {cE._id} Minha empresa: {cE.corporateName}<Link href={`/business/${cE._id}`}> Entrar na empresa</Link></div>)})}
 </>)
 
 }
