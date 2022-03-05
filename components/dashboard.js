@@ -2,14 +2,12 @@ import Link from "next/link";
 import { useEffect, useState, useContext } from "react";
 import { api } from "../pages/api/api";
 import NavbarDash from "./NavbarDash";
-import { BusinessContext } from "../contexts/businessContext.js";
 
 
 export default function Dashboard() {
   const [isLoading, setIsloading] = useState(true)
   const [user, setuser] = useState({});
 
-  const { setloggedInBusiness } = useContext(BusinessContext)
 
 
 
@@ -19,7 +17,7 @@ export default function Dashboard() {
         const response = await api.get("/users/profile");
         setuser({ ...response.data });
         setIsloading(false)
-        localStorage.removeItem('loggedInBusiness')
+        localStorage.removeItem('loggedInBusiness') // toda vez que clica no dashboard, limpa o localStorage
       } catch (error) {
         console.error(error);
       }

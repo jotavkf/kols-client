@@ -13,9 +13,11 @@ api.interceptors.request.use((config) => {
   const json = localStorage.getItem("loggedInUser");
   const loggedInUser = JSON.parse(json || '""');
 
+
   if (loggedInUser.token) {
     config.headers = { Authorization: `Bearer ${loggedInUser.token}` };
   }
+
 
   return config;
 });
