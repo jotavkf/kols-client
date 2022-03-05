@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { api } from "./api/api";
 import { useRouter } from 'next/router'
+<<<<<<< HEAD
 import { AuthContext } from '../contexts/authContext'
 
 
@@ -35,3 +36,19 @@ export default function Dashboard() {
       }) : <h1>Erro</h1>}
   </>)
 }
+=======
+import {AuthContext} from '../contexts/authContext'
+import { route } from "next/dist/server/router";
+import DashboardComponent from "../components/dashboard";
+
+
+export default function Dashboard() {
+  
+  const { loggedInUser } = useContext(AuthContext);
+
+  return (<>
+
+    {loggedInUser.token ? <DashboardComponent/> : <>Erro</>}
+  </>)
+}
+>>>>>>> e9526be2478761a82324544ccc0985a595851358
