@@ -18,7 +18,7 @@ export default function NavbarBusiness() {
         { name: 'Dashboard', href: '/business', current: true },
         { name: 'Produtos', href: `/business/${id}/products`, current: false },
         { name: 'Relatórios', href: '#', current: false },
-        { name: 'Movimentar Estoque', href: '#', current: false },
+        { name: 'Movimentar Estoque', href: `/business/${id}/stock-control`, current: false },
     ]
 
     return (
