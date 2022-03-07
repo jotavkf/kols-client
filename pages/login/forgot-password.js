@@ -20,7 +20,7 @@ export default function ForgotPassWord() {
                         onSubmit={async function (values) {
                             try {
                                 console.log(values)
-                                const response = await axios.post("/users/login", values); // tem que passar o URL certo aqui
+                                await axios.post("https://kols-server.herokuapp.com/resetPassword/forgot-password", values); // tem que passar o URL certo aqui
                             } catch (e) { console.log(e) }
                         }}>
                         <Form className="mt-8 space-y-6" >
