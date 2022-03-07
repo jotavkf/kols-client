@@ -6,7 +6,6 @@ import { useRouter } from 'next/router'
 import { AuthContext } from '../../contexts/authContext'
 import { useState, useContext } from 'react';
 import axios from "axios";
-import Link from "next/link";
 
 
 export default function Login() {
@@ -26,9 +25,9 @@ export default function Login() {
                         />
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Entre em sua conta</h2>
                         <p className="mt-2 text-center text-sm text-gray-600">
-                        <Link href="/login/forgot-password">
-                            <button className="font-medium text-indigo-600 hover:text-indigo-500">Esqueceu a senha?</button>
-                        </Link>
+                            <Link href="/login/forgot-password">
+                                <button className="font-medium text-indigo-600 hover:text-indigo-500">Esqueceu a senha?</button>
+                            </Link>
                         </p>
                     </div>
                     <Formik
