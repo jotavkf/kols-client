@@ -9,9 +9,11 @@ export default function Dashboard() {
   const { loggedInUser } = useContext(AuthContext);
 
 
+
+
   return (<>
 
-    {loggedInUser.token ? <DashboardComponent /> : <>Erro</>}
+    {loggedInUser.token ? <DashboardComponent /> : 'Sem permissão!'}
 
   </>)
 }

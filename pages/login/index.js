@@ -7,7 +7,9 @@ import { AuthContext } from '../../contexts/authContext'
 import { useState, useContext } from 'react';
 import axios from "axios";
 
+
 export default function Login() {
+
 
     const { setLoggedInUser } = useContext(AuthContext);
 
@@ -23,9 +25,9 @@ export default function Login() {
                         />
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Entre em sua conta</h2>
                         <p className="mt-2 text-center text-sm text-gray-600">
-                        <Link href="/login/forgot-password">
-                            <button className="font-medium text-indigo-600 hover:text-indigo-500">Esqueceu a senha?</button>
-                        </Link>
+                            <Link href="/login/forgot-password">
+                                <button className="font-medium text-indigo-600 hover:text-indigo-500">Esqueceu a senha?</button>
+                            </Link>
                         </p>
                     </div>
                     <Formik
@@ -36,7 +38,6 @@ export default function Login() {
                                 const response = await api.post("/users/login", values);
                                 setLoggedInUser(response.data);
                                 localStorage.setItem("loggedInUser", JSON.stringify(response.data));
-
                             } catch (e) { console.log(e) }
                         }}>
                         <Form className="mt-8 space-y-6" >
@@ -62,10 +63,11 @@ export default function Login() {
                                 <button
                                     type="submit"
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+
                                     <span
                                         className="absolute left-0 inset-y-0 flex items-center pl-3">
                                     </span>
-                                    Login
+                                    <Link href={"/business"}>Login</Link>
                                 </button>
                             </div>
                         </Form>

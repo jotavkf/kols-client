@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
@@ -13,6 +13,7 @@ function classNames(...classes) {
 export default function NavbarBusiness() {
     const router = useRouter()
     const { id } = router.query
+
 
     const navigation = [
         { name: 'Dashboard', href: '/business', current: true },
@@ -123,7 +124,7 @@ export default function NavbarBusiness() {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a
-                                                        href="#"
+                                                        href="/logout"
                                                         className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                                                     >
                                                         Sign out
