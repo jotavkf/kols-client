@@ -56,9 +56,9 @@ export default function Dashboard() {
                 <>
                   <div key={cE._id} className="flex justify-center">
                     <div className="rounded-lg shadow-lg bg-white max-w-sm">
-                      <a href="#!">
+                      <Link href="#!">
                         <img className="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt="asd" />
-                      </a>
+                      </Link>
                       <div className="p-6">
                         <h5 className="text-gray-900 text-xl font-medium mb-2">{cE.name}</h5>
                         <p className="text-gray-700 text-base mb-4">Razão Social: {cE.corporateName}</p>
