@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect, useState } from "react";
-import NavbarBusiness from '../../../components/NavbarBusiness';
-import { api } from "../../api/api.js";
+import NavbarBusiness from '../../../../components/NavbarBusiness.js';
+import { api } from "../../../api/api.js";
 
 
 
@@ -14,6 +14,7 @@ function Product() {
     const router = useRouter()
     const { idProduct } = router.query
     console.log(idProduct)
+
 
     useEffect(() => {
         async function fetchProduct() {
@@ -29,7 +30,6 @@ function Product() {
     }, [idProduct])
 
 
-    console.log(product)
     return (
         <> DETALHE DE CADA PRODUTO / JÁ ADICIONAR AQUI O FORMULÁRIO PARA EDIÇÃO
             <NavbarBusiness />

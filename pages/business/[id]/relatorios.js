@@ -5,17 +5,19 @@ import { useEffect, useState } from "react";
 
 function Report() {
   const [isLoading, setIsloading] = useState(true);
-  const [business, setBusiness] = useState({});
+  const [products, setProducts] = useState();
 
   const router = useRouter();
   const { id } = router.query;
+  console.log(id)
 
   useEffect(() => {
     async function data() {
       try {
-        const response = await api.get(`/business/profile/${id}`);
-        setBusiness([response.data.products]);
+        const response = await api.get(`/products/${id}`);
+        setProducts(response.data);
         setIsloading(false);
+        console.log(response.data)
       } catch (error) {
         console.error(error);
       }
@@ -23,18 +25,24 @@ function Report() {
     data();
   }, [id]);
 
-  console.log(business);
+  console.log(products);
 
   return (
     <>
       <NavbarBusiness />
       <div>
+
         {!isLoading &&
-          business.map(cE => {
-            {
-              console.log(cE.name);
-            }
-          })}
+          products.map((cE) => {
+            return (
+              <>
+                Nome: {cE.quantity}
+              </>
+            )
+          })
+        }
+
+
       </div>
     </>
   );
