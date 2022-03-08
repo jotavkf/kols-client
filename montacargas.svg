@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 16 16" version="1.1">
+  <g id="layer1" transform="translate(0 -1036.4)">
+    <rect id="rect2816" height="5.3953" width="5.6744" stroke="#000" y="1044" x=".46512" stroke-width=".8" fill="#ffd400"/>
+    <rect id="rect2818" height="5.3488" width="5.5349" stroke="#000" y="1038.6" x="3.8605" stroke-width=".8" fill="none"/>
+    <rect id="rect2820" height="5.9535" width="5.6279" stroke="#000" y="1044.4" x="5.7674" stroke-width=".8" fill="#fff000"/>
+    <rect id="rect2822" height=".83721" width="4.3721" stroke="#000" y="1049.1" x="11.209" stroke-width=".8" fill="#969696"/>
+    <rect id="rect2824" height="7.2558" width=".55814" stroke="#000" y="1037.2" x="10.837" stroke-width=".8" fill="#969696"/>
+    <path id="path2826" d="m4.0465 14.186a1.3023 1.2093 0 1 1 -2.6047 0 1.3023 1.2093 0 1 1 2.6047 0z" transform="translate(-.60465 1035.9)" stroke="#000" stroke-width=".8" fill="#969696"/>
+    <path id="path2828" d="m12.326 13.302a2.3721 2.3256 0 1 1 -4.7442 0 2.3721 2.3256 0 1 1 4.7442 0z" transform="translate(-.60465 1035.9)" stroke="#000" stroke-width=".8" fill="#969696"/>
+    <path id="path2848" stroke="#ba6400" stroke-width="1px" fill="none" d="m15.674 1048.4h-3.5349m3.5349-1.8915h-3.5349m3.5349-1.8914h-3.5349m3.5349-1.8915h-3.5349m3.5349-1.8915h-3.5349m3.5349-1.8914h-3.5349m3.5349-1.8915h-3.5349"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Montacargas, Stacker</dc:title>
+        <dc:date>2011-10-05T00:32:05</dc:date>
+        <dc:description>Montacargas</dc:description>
+        <dc:source>http://openclipart.org/detail/162865/montacargas-by-juliocesarfx</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>juliocesarfx</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>juliocesarfx</rdf:li>
+            <rdf:li>mexico</rdf:li>
+            <rdf:li>montacargas</rdf:li>
+            <rdf:li>m&#xEF;&#xBF;&#xBD;xico</rdf:li>
+            <rdf:li>pachuca</rdf:li>
+            <rdf:li>stacker</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
