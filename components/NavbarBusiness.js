@@ -20,7 +20,7 @@ export default function NavbarBusiness() {
     const navigation = [
         { name: 'Dashboard', href: '/business', current: true },
         { name: 'Produtos', href: `/business/${id}/products`, current: false },
-        { name: 'Relatórios', href: '#', current: false },
+        { name: 'Relatórios', href: `/business/${id}/relatorios`, current: false },
         { name: 'Movimentar Estoque', href: `/business/${id}/stock-control`, current: false },
     ]
 

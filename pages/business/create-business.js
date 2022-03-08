@@ -1,17 +1,10 @@
 import { api } from "../api/api";
-import { useEffect, useState, useContext, cloneElement } from "react";
 import NavbarDash from "../../components/NavbarDash";
 import { Formik, Form, Field } from 'formik';
-import axios from 'axios'
-
 
 
 function CreateBusiness() {
   const arrayDeEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO",]
-
-
-
-
 
   return (
     <>
@@ -57,7 +50,9 @@ function CreateBusiness() {
                   await api.post("/business/create-business", values)
                 } catch (e) { console.log(e) }
               }}>
-
+              <form>
+                <input type="file" name="businessImg" id="businessImg" />
+              </form>
               <Form>
                 <div className="shadow overflow-hidden sm:rounded-md">
                   <div className="px-4 py-5 bg-white sm:p-6">

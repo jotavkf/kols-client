@@ -100,6 +100,12 @@ export default function Business() {
               {business.corporateName}
             </h3>
           </div>
+          <button
+            type="button"
+            className=" flexbox inline-block px-4 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+          >
+            <Link href={`/business/update/${id}/`}> EDITAR EMPRESA</Link>
+          </button>
           <div className="border-t border-gray-200">
             <dl>
               <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -136,85 +142,32 @@ export default function Business() {
                   {business.owner.name} {business.owner.lastName}
                 </dd>
               </div>
-              <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                <dt className="text-sm font-medium text-gray-500">
-                  EMPRESA ESTÁ ATIVA?
-                </dt>
-                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                  {business.businessIsActive}
-                </dd>
-              </div>
+
               <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt className="text-sm font-medium text-gray-500">
-                  Attachments (talvez colocar um campo pra colocar a logo aqui.)
+                  Logo da Empresa
+                  <img src={business.businessImg} alt="Logo" />
                 </dt>
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   <ul
                     role="list"
                     className="border border-gray-200 rounded-md divide-y divide-gray-200"
                   >
-                    <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
+                    <li className="pl-3 pr-4 py-3 flex justify-between items-center text-sm">
                       <form onSubmit={handleSubmit}>
                         <input
                           type="file"
                           name="businessImg"
                           onChange={handleChange}
                         />
-                        <div className="w-0 flex-1 flex items-center">
-                          {/* <!-- Heroicon name: solid/paper-clip --> */}
-                          <svg
-                            className="flex-shrink-0 h-5 w-5 text-gray-400"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                        </div>
-                        <div className="ml-4 flex-shrink-0">
-                          <button
-                            className="font-medium text-indigo-600 hover:text-indigo-500"
-                            type="submit"
-                          >
-                            Upload Logo
-                          </button>
-                        </div>
                       </form>
-                    </li>
-                    <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm">
-                      <div className="w-0 flex-1 flex items-center">
-                        {/* <!-- Heroicon name: solid/paper-clip --> */}
-                        <svg
-                          className="flex-shrink-0 h-5 w-5 text-gray-400"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        <span className="ml-2 flex-1 w-0 truncate">
-                          {" "}
-                          coverletter_back_end_developer.pdf{" "}
-                        </span>
-                      </div>
                       <div className="ml-4 flex-shrink-0">
-                        <a
-                          href="#"
-                          className="font-medium text-indigo-600 hover:text-indigo-500"
+                        <button
+                          className="font-medium text-indigo-600 hover:text-indigo-500 bg-green-400 px-6 py-2.5 text-white rounded"
+                          type="submit"
                         >
-                          {" "}
-                          Download{" "}
-                        </a>
+                          Upload Logo
+                        </button>
                       </div>
                     </li>
                   </ul>
@@ -222,12 +175,6 @@ export default function Business() {
               </div>
             </dl>
           </div>
-          <button
-            type="button"
-            className=" flexbox inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-          >
-            <Link href={`/business/update/${id}/`}> EDITAR EMPRESA</Link>
-          </button>
         </div>
       )}
     </>

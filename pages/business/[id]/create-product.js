@@ -3,28 +3,273 @@ import { useEffect, useState } from "react";
 import NavbarBusiness from '../../../components/NavbarBusiness';
 import { api } from "../../api/api.js";
 import Link from "next/link";
+import { Formik, Form, Field } from 'formik';
+
 
 
 function CreateProduct() {
 
-    useEffect(() => {
-        async function fetchProducts() {
-            try {
-                const response = await api.get(`/products/${id}`); //buscar todos os produtos
-                setProducts([...response.data]);
-                setIsloading(false)
-            } catch (error) {
-                console.error(error);
-            }
+    const router = useRouter()
+    const { id } = router.query //id do business
+    console.log(id)
+
+
+    async function fetchProducts() {
+        try {
+            const response = await api.get(`/products/${id}/create-product`); //buscar todos os produtos
+        } catch (error) {
+            console.error(error);
         }
-        fetchProducts();
-    }, [])
+    }
+
+
 
 
 
     return (
         <>
             <NavbarBusiness />
+
+            <div className="hidden sm:block" aria-hidden="true">
+                <div className="py-5">
+                    <div className="border-t border-gray-200" />
+                </div>
+            </div>
+
+            <div className="mt-10 sm:mt-0">
+                <div className="md:grid md:grid-cols-3 md:gap-6">
+                    <div className="md:col-span-1">
+                        <div className="px-4 sm:px-0">
+                            <h3 className="text-lg font-medium leading-6 text-gray-900">Crie um produto</h3>
+                            <p className="mt-1 text-sm text-gray-600">Preencha com as informações do produto.</p>
+                        </div>
+                    </div>
+                    <div className="mt-5 md:mt-0 md:col-span-2">
+                        <Formik
+                            initialValues={{
+                                corporateName: '',
+                                name: '',
+                                cnpj: '',
+                                ie: '',
+                                im: '',
+                                email: '',
+                                phone: '',
+                                address: {
+                                    street: '',
+                                    number: '',
+                                    district: '',
+                                    city: '',
+                                    zipcode: '',
+                                    state: '',
+                                    businessImg: ''
+                                }
+                            }}
+                            onSubmit={async function (values) {
+                                try {
+                                    console.log(values)
+                                    await api.post("/business/create-business", values)
+                                } catch (e) { console.log(e) }
+                            }}>
+                            <form>
+                                <input type="file" name="businessImg" id="businessImg" />
+                            </form>
+                            <Form>
+                                <div className="shadow overflow-hidden sm:rounded-md">
+                                    <div className="px-4 py-5 bg-white sm:p-6">
+                                        <div className="grid grid-cols-6 gap-6">
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlFor="corporateName" className="block text-sm font-medium text-gray-700">
+                                                    Razão Social
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="corporateName"
+                                                    id="corporateName"
+                                                    required={true}
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                                                    Nome Fantasia
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="name"
+                                                    id="name"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlFor="cnpj" className="block text-sm font-medium text-gray-700">
+                                                    CNPJ
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="cnpj"
+                                                    id="cnpj"
+                                                    placeholder="xx.xxx.xxx/xxxx-xx"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlFor="ie" className="block text-sm font-medium text-gray-700">
+                                                    Inscrição Estadual
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="ie"
+                                                    id="ie"
+                                                    placeholder="xxx.xxx.xxx.xxx"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlFor="im" className="block text-sm font-medium text-gray-700">
+                                                    Inscrição Municipal
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="im"
+                                                    id="im"
+                                                    placeholder="xxxxxxx/xxx-x"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-3">
+                                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                                    Email address
+                                                </label>
+                                                <Field
+                                                    type="email"
+                                                    name="email"
+                                                    id="email"
+                                                    autoComplete="email"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                    placeholder="empresa@empresa.com"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                                                <label htmlFor="Telefone" className="block text-sm font-medium text-gray-700">
+                                                    Telefone
+                                                </label>
+                                                <Field
+                                                    type="number"
+                                                    name="phone"
+                                                    id="phone"
+                                                    autoComplete="address-level2"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                    placeholder="(xx) xxxxx-xxxx"
+                                                />
+                                            </div>
+                                            <div className="col-span-3 sm:col-span-3 lg:col-span-2">
+                                                <label htmlFor="zipcode" className="block text-sm font-medium text-gray-700">
+                                                    CEP
+                                                </label>
+                                                <Field
+                                                    type="number"
+                                                    name="address.zipcode"
+                                                    id="address.zipcode"
+                                                    autoComplete="zipcode"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                    placeholder="00000-000"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-1">
+                                                <label htmlFor="address.state" className="block text-sm font-medium text-gray-700">
+                                                    Estado
+                                                </label>
+                                                <Field
+                                                    as="Select"
+                                                    id="address.state"
+                                                    name="address.state"
+                                                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                                >
+                                                    {arrayDeEstados.map((cE) => { return <option key={cE} value={`${cE}`}>{cE}</option> })}
+                                                </Field>
+                                            </div>
+                                            <div className="col-span-6 sm:col-span-6 lg:col-span-2">
+                                                <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                                                    Cidade
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="address.city"
+                                                    id="address.city"
+                                                    autoComplete="address-level2"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+                                            <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                                                <label htmlFor="district" className="block text-sm font-medium text-gray-700">
+                                                    Bairro
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="address.district"
+                                                    id="address.district"
+                                                    autoComplete="address-level1"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+                                            <div className="col-span-3">
+                                                <label htmlFor="Rua" className="block text-sm font-medium text-gray-700">
+                                                    Rua
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="address.street"
+                                                    id="address.street"
+                                                    autoComplete="Rua"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+                                            <div className="col-span-1">
+                                                <label htmlFor="number" className="block text-sm font-medium text-gray-700">
+                                                    Numero
+                                                </label>
+                                                <Field
+                                                    type="number"
+                                                    name="address.number"
+                                                    id="address.number"
+                                                    autoComplete="Rua"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                    <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                        <button
+                                            type="submit"
+                                            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                        >
+                                            Salvar
+                                        </button>
+                                    </div>
+                                </div>
+                            </Form>
+                        </Formik>
+                    </div>
+                </div>
+            </div>
+
+            <div className="hidden sm:block" aria-hidden="true">
+                <div className="py-5">
+                    <div className="border-t border-gray-200" />
+                </div>
+            </div>
+
         </>
     );
 }
