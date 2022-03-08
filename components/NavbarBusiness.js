@@ -1,7 +1,8 @@
 import { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import { useRouter, Link } from 'next/router'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 
 
