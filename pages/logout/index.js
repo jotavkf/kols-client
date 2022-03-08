@@ -7,10 +7,10 @@ function Logout() {
     console.log("LOG OUT")
 
     useEffect(() => {
-        async function removeToken() {
+        function removeToken() {
             try {
-                /* localStorage.removeItem('loggedInUser')
-                localStorage.removeItem('loggedInBusiness') */
+                localStorage.removeItem('loggedInUser')
+                localStorage.removeItem('loggedInBusiness')
             } catch (error) {
                 console.error(error);
             }
