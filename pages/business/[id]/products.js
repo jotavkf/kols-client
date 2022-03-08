@@ -64,7 +64,7 @@ function Products() {
                                         <td>{cE.category}</td>
                                         <td>{cE.supplier}</td>
                                         <td>{cE.resupplyPoint}</td>
-                                        <td><Link href={`/business/${id}/${cE._id}`}>DETALHES</Link></td>
+                                        <td><Link href={`/business/${id}/product/${cE._id}`}>DETALHES</Link></td>
                                     </tr>
                                 )
                             })}
