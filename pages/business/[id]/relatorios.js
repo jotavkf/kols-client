@@ -2,25 +2,35 @@ import { useRouter } from "next/router";
 import { api } from "../../api/api";
 import NavbarBusiness from "../../../components/NavbarBusiness";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import Chart from 'chart.js/auto'
 
 
 function Report() {
+  //states dos produtos
   const [isLoading, setIsloading] = useState(true);
-  const [isLoading2, setIsloading2] = useState(true);
   const [products, setProducts] = useState();
+
+  //state dos logs
+  const [isLoading2, setIsloading2] = useState(true);
   const [logs, setLogs] = useState();
+
+  //state do grafico
+  const [isLoading3, setIsloading3] = useState(true)
+  const [chart, setChart] = useState(null);
+  const [chartData, setChartData] = useState({})
+
 
   const router = useRouter();
   const { id } = router.query;
-  console.log(id)
 
+  //CONSUMINDO API DO BANCO DE DADOS
   useEffect(() => {
     async function Products() {
       try {
         const response = await api.get(`/products/${id}`);
         setProducts(response.data);
         setIsloading(false);
-        console.log(response.data)
       } catch (error) {
         console.error(error);
       }
@@ -32,6 +42,7 @@ function Report() {
         const response = await api.get(`/business/${id}/log`);
         setLogs(response.data);
         setIsloading2(false)
+        setIsloading3(false)
       } catch (error) {
         console.error(error);
       }
@@ -40,7 +51,52 @@ function Report() {
   }, [id]);
 
 
-  console.log(logs);
+  //GRAFICO
+  useEffect(() => {
+    if (!isLoading3) { // se loading for false (api já terminou de enviar as informações), renderizar o chart
+      function renderChart() {
+        const ctx = document.getElementById('instanceChart').getContext('2d');
+
+        if (chart) {
+          chart.destroy();
+        }
+
+        //DATA E QUANTIDADE DE PRODUTOS - SAÍDA
+        const dates = logs.filter(cE => cE.quantityOutput).map((cE) => cE.date.slice(0, 10))
+        const values = logs.filter(cE => cE.quantityOutput).map((cE) => cE.quantityOutput)
+        const instanceChart = new Chart(
+          ctx, { //config
+          type: 'line',
+          data: {
+            labels: dates,
+            datasets: [{
+              label: "Saídas de Produtos",
+              data: values,
+              borderColor: 'rgb(21, 114, 161)',
+              tension: 0.2
+            },
+            /* {
+                label: "Preço Bitcoin no BRASIL (valores em reais R$)",
+                data: Object.values(dataBRL),
+                borderColor: 'rgb(101, 93, 138)',
+                tension: 0.2
+            },
+            {
+                label: "Preço Bitcoin na CHINA (valores em Yuan ¥)",
+                data: Object.values(dataCNY),
+                borderColor: 'rgb(243, 197, 197)',
+                tension: 0.2
+            } */]
+          },
+        }
+        )
+        setChart(instanceChart)
+      }
+      renderChart()
+    }
+  }, [isLoading3, chartData])
+
+
 
   return (
     <>
@@ -169,6 +225,13 @@ function Report() {
                   )}
               </tbody>
             </table>
+
+            <div>
+              <div className="graph">
+                {isLoading3 ? "Carregando..." : (<canvas className="graph" id="instanceChart" />)}
+
+              </div>
+            </div>
           </>}
       </div>
     </>
