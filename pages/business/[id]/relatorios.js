@@ -153,11 +153,9 @@ function Report() {
                   })}
               </tbody>
             </table>
-
-
-
           </>
         }
+
         {!isLoading2 &&
           <>
             <h1 className="text-lg">MOVIMENTAÇÃO DO ESTOQUE POR PRODUTOS - VENDAS</h1>
@@ -224,6 +222,8 @@ function Report() {
                   )}
               </tbody>
             </table>
+
+
 
             <div>
               <div className="graph">
