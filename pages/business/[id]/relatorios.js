@@ -175,6 +175,7 @@ function Report() {
               </thead>
               <tbody>
                 {logs
+                  .filter(cE => cE.quantityOutput)
 
                   .map((cE) => {
                     return (
