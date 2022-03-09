@@ -11,6 +11,9 @@ function Product() {
     const [isLoading, setIsloading] = useState(true)
     const [product, setProduct] = useState()
     const [openForm, setOpenForm] = useState(false)
+    const [taxes, setTaxes] = useState('')
+    const [profit, setProfit] = useState('')
+    const [result, setResult] = useState()
 
     const router = useRouter()
     const { idProduct } = router.query
@@ -29,16 +32,26 @@ function Product() {
         fetchProduct();
     }, [idProduct, openForm])
 
-    async function formatDate() {
-        const date = await (product.createDate)
-
-        console.log(date)
+    function handleChangeTaxes(event) {
+        setTaxes(event.target.value)
     }
-    formatDate()
+
+    function handleChangeProfit(event) {
+        setProfit(event.target.value)
+    }
+    console.log(taxes)
+
+    function profitMath() {
+
+
+
+        return (product.purchasePrice * (taxes / 100 + profit / 100)) + product.purchasePrice
+    }
+
 
 
     return (
-        <> DETALHE DE CADA PRODUTO / JÁ ADICIONAR AQUI O FORMULÁRIO PARA EDIÇÃO
+        <>
             <NavbarBusiness />
             {!isLoading &&
 
@@ -65,9 +78,37 @@ function Product() {
                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{product.supplier}</dd>
                             </div>
                             <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                                <dt className="text-sm font-medium text-gray-500">Data de Criação</dt>
-                                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{product.createDate}</dd>
+                                <dt className="text-sm font-medium text-gray-500">Data de Criação (aaaa-mm-dd)</dt>
+                                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">{product.createDate.slice(0, 10)}</dd>
                             </div>
+
+                            {/* calculadora de imposto */}
+                            <div className="bg-cyan-900 px-4 py-5 sm:grid sm:grid-cols-1 sm:gap-4 sm:px-6 flex px-10 ">
+                                <dt className="text-sm font-medium text-white sm:col-span-1">Calculadora de Imposto</dt>
+                            </div>
+
+                            <form className='flex py-5 pb-3 items-center justify-center'>
+                                <div className="mt-1 text-sm  sm:mt-0 sm:col-span-1 px-3">Preço de Compra : </div>
+                                <div className="mt-1 text-sm  sm:mt-0 sm:col-span-1 px-3">R${product.purchasePrice},00</div>
+                                <div className="mt-1 text-sm  sm:mt-0 sm:col-span-1 px-4">Impostos (%)</div>
+                                <input
+                                    type="number"
+                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    onChange={handleChangeTaxes}
+                                />
+                                <div className="mt-1 text-sm  sm:mt-0 sm:col-span-1 px-4">Lucro (%)</div>
+                                <input
+                                    type="number"
+                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    onChange={handleChangeProfit}
+                                />
+
+                            </form>
+                            <div className='flex flex-box items-center flex-col py-8'>
+                                <p>Preço de compra + {taxes}% de imposto / R${(taxes * product.purchasePrice) / 100} reais + {profit}% de lucro / R${(profit * product.purchasePrice) / 100} reais  </p>
+                                <h1 className='text-lg'>Valor de venda Mínimo: R${taxes && profit && profitMath()}</h1>
+                            </div>
+
                         </dl>
                     </div>
                     <button type="button" onClick={() => { openForm ? setOpenForm(false) : setOpenForm(true) }} className=" flexbox inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out">EDITAR PRODUTO</button>

@@ -2,7 +2,6 @@ import { useRouter } from "next/router";
 import { api } from "../../api/api";
 import NavbarBusiness from "../../../components/NavbarBusiness";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import Chart from 'chart.js/auto'
 
 
