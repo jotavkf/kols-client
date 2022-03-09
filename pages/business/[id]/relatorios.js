@@ -19,6 +19,9 @@ function Report() {
   const [chart, setChart] = useState(null);
   const [chartData, setChartData] = useState({})
 
+  const [search, setSearch] = useState('')
+
+
 
   const router = useRouter();
   const { id } = router.query;
@@ -103,6 +106,7 @@ function Report() {
       <div>
         {!isLoading &&
           <>
+
             <h1>Produtos em Ponto de Pedido</h1>
             <table className="table-fixed px-2 py-2">
               <thead>
@@ -114,7 +118,6 @@ function Report() {
               </thead>
               <tbody>
                 {products
-                  .filter(cE => cE.quantity <= cE.resupplyPoint)
                   .map((cE) => {
                     return (
                       <tr key={cE._id}>
@@ -172,7 +175,7 @@ function Report() {
               </thead>
               <tbody>
                 {logs
-                  .filter(cE => cE.quantityOutput)
+
                   .map((cE) => {
                     return (
                       <tr key={cE._id}>
@@ -204,6 +207,7 @@ function Report() {
               <tbody>
                 {logs
                   .filter(cE => cE.quantityInput)
+
                   .map((cE) => {
                     return (
                       <tr key={cE._id}>
