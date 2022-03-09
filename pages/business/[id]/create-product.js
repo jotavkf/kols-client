@@ -8,23 +8,11 @@ import { Formik, Form, Field } from 'formik';
 
 
 function CreateProduct() {
+    const arrayDeEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO",]
 
     const router = useRouter()
     const { id } = router.query //id do business
     console.log(id)
-
-
-    async function fetchProducts() {
-        try {
-            const response = await api.get(`/products/${id}/create-product`); //buscar todos os produtos
-        } catch (error) {
-            console.error(error);
-        }
-    }
-
-
-
-
 
     return (
         <>
@@ -47,205 +35,137 @@ function CreateProduct() {
                     <div className="mt-5 md:mt-0 md:col-span-2">
                         <Formik
                             initialValues={{
-                                corporateName: '',
                                 name: '',
-                                cnpj: '',
-                                ie: '',
-                                im: '',
-                                email: '',
-                                phone: '',
-                                address: {
-                                    street: '',
-                                    number: '',
-                                    district: '',
-                                    city: '',
-                                    zipcode: '',
-                                    state: '',
-                                    businessImg: ''
-                                }
+                                desc: '',
+                                partNumber: '',
+                                quantity: '',
+                                category: '',
+                                purchasePrice: '',
+                                salePrice: '',
+                                supplier: '',
+                                resupplyPoint: ''
                             }}
-                            onSubmit={async function (values) {
+                            onSubmit={async function (values, { resetForm }) {
                                 try {
                                     console.log(values)
-                                    await api.post("/business/create-business", values)
+                                    await api.post(`/products/${id}/create-product`, values)
                                 } catch (e) { console.log(e) }
+                                resetForm()
                             }}>
-                            <form>
-                                <input type="file" name="businessImg" id="businessImg" />
-                            </form>
+
                             <Form>
                                 <div className="shadow overflow-hidden sm:rounded-md">
                                     <div className="px-4 py-5 bg-white sm:p-6">
                                         <div className="grid grid-cols-6 gap-6">
                                             <div className="col-span-6 sm:col-span-3">
-                                                <label htmlFor="corporateName" className="block text-sm font-medium text-gray-700">
-                                                    Razão Social
-                                                </label>
-                                                <Field
-                                                    type="text"
-                                                    name="corporateName"
-                                                    id="corporateName"
-                                                    required={true}
-                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                                />
-                                            </div>
-                                            <div className="col-span-6 sm:col-span-3">
                                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                                                    Nome Fantasia
+                                                    Nome do Produto
                                                 </label>
                                                 <Field
                                                     type="text"
                                                     name="name"
                                                     id="name"
+                                                    required={true}
                                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                 />
                                             </div>
-
                                             <div className="col-span-6 sm:col-span-3">
-                                                <label htmlFor="cnpj" className="block text-sm font-medium text-gray-700">
-                                                    CNPJ
+                                                <label htmlFor="desc" className="block text-sm font-medium text-gray-700">
+                                                    Drescição
                                                 </label>
                                                 <Field
                                                     type="text"
-                                                    name="cnpj"
-                                                    id="cnpj"
-                                                    placeholder="xx.xxx.xxx/xxxx-xx"
+                                                    name="desc"
+                                                    id="desc"
                                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                 />
                                             </div>
 
                                             <div className="col-span-6 sm:col-span-3">
-                                                <label htmlFor="ie" className="block text-sm font-medium text-gray-700">
-                                                    Inscrição Estadual
+                                                <label htmlFor="partNumber" className="block text-sm font-medium text-gray-700">
+                                                    Part-Number
                                                 </label>
                                                 <Field
                                                     type="text"
-                                                    name="ie"
-                                                    id="ie"
-                                                    placeholder="xxx.xxx.xxx.xxx"
+                                                    name="partNumber"
+                                                    id="partNumber"
+                                                    placeholder="SKU"
                                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                 />
                                             </div>
 
                                             <div className="col-span-6 sm:col-span-3">
-                                                <label htmlFor="im" className="block text-sm font-medium text-gray-700">
-                                                    Inscrição Municipal
+                                                <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+                                                    Categoria
                                                 </label>
                                                 <Field
                                                     type="text"
-                                                    name="im"
-                                                    id="im"
-                                                    placeholder="xxxxxxx/xxx-x"
+                                                    name="category"
+                                                    id="category"
+                                                    placeholder="Matéria Prima / Embalagem"
                                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                 />
                                             </div>
 
                                             <div className="col-span-6 sm:col-span-3">
-                                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                                    Email address
-                                                </label>
-                                                <Field
-                                                    type="email"
-                                                    name="email"
-                                                    id="email"
-                                                    autoComplete="email"
-                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                                    placeholder="empresa@empresa.com"
-                                                />
-                                            </div>
-
-                                            <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                                                <label htmlFor="Telefone" className="block text-sm font-medium text-gray-700">
-                                                    Telefone
+                                                <label htmlFor="Preço de Compra" className="block text-sm font-medium text-gray-700">
+                                                    Preço de Compra R$
                                                 </label>
                                                 <Field
                                                     type="number"
-                                                    name="phone"
-                                                    id="phone"
+                                                    name="purchasePrice"
+                                                    id="purchasePrice"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-3 lg:col-span-2">
+                                                <label htmlFor="salePrice" className="block text-sm font-medium text-gray-700">
+                                                    Preço de Venda  R$
+                                                </label>
+                                                <Field
+                                                    type="number"
+                                                    name="salePrice"
+                                                    id="salePrice"
                                                     autoComplete="address-level2"
                                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                                    placeholder="(xx) xxxxx-xxxx"
+                                                />
+                                            </div>
+                                            <div className="col-span-6 sm:col-span-2">
+                                                <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">
+                                                    Quantidade (und)
+                                                </label>
+                                                <Field
+                                                    type="number"
+                                                    name="quantity"
+                                                    id="quantity"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                />
+                                            </div>
+
+                                            <div className="col-span-6 sm:col-span-2 lg:col-span-2">
+                                                <label htmlFor="resupplyPoint" className="block text-sm font-medium text-gray-700">
+                                                    Ponto de Pedido (und)
+                                                </label>
+                                                <Field
+                                                    type="text"
+                                                    name="resupplyPoint"
+                                                    id="resupplyPoint"
+                                                    autoComplete="address-level2"
+                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                 />
                                             </div>
                                             <div className="col-span-3 sm:col-span-3 lg:col-span-2">
-                                                <label htmlFor="zipcode" className="block text-sm font-medium text-gray-700">
-                                                    CEP
-                                                </label>
-                                                <Field
-                                                    type="number"
-                                                    name="address.zipcode"
-                                                    id="address.zipcode"
-                                                    autoComplete="zipcode"
-                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                                    placeholder="00000-000"
-                                                />
-                                            </div>
-
-                                            <div className="col-span-6 sm:col-span-1">
-                                                <label htmlFor="address.state" className="block text-sm font-medium text-gray-700">
-                                                    Estado
-                                                </label>
-                                                <Field
-                                                    as="Select"
-                                                    id="address.state"
-                                                    name="address.state"
-                                                    className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                                >
-                                                    {arrayDeEstados.map((cE) => { return <option key={cE} value={`${cE}`}>{cE}</option> })}
-                                                </Field>
-                                            </div>
-                                            <div className="col-span-6 sm:col-span-6 lg:col-span-2">
-                                                <label htmlFor="city" className="block text-sm font-medium text-gray-700">
-                                                    Cidade
+                                                <label htmlFor="supplier" className="block text-sm font-medium text-gray-700">
+                                                    Fornecedor
                                                 </label>
                                                 <Field
                                                     type="text"
-                                                    name="address.city"
-                                                    id="address.city"
-                                                    autoComplete="address-level2"
+                                                    name="supplier"
+                                                    id="supplier"
                                                     className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                 />
                                             </div>
-                                            <div className="col-span-6 sm:col-span-3 lg:col-span-2">
-                                                <label htmlFor="district" className="block text-sm font-medium text-gray-700">
-                                                    Bairro
-                                                </label>
-                                                <Field
-                                                    type="text"
-                                                    name="address.district"
-                                                    id="address.district"
-                                                    autoComplete="address-level1"
-                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                                />
-                                            </div>
-                                            <div className="col-span-3">
-                                                <label htmlFor="Rua" className="block text-sm font-medium text-gray-700">
-                                                    Rua
-                                                </label>
-                                                <Field
-                                                    type="text"
-                                                    name="address.street"
-                                                    id="address.street"
-                                                    autoComplete="Rua"
-                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                                />
-                                            </div>
-                                            <div className="col-span-1">
-                                                <label htmlFor="number" className="block text-sm font-medium text-gray-700">
-                                                    Numero
-                                                </label>
-                                                <Field
-                                                    type="number"
-                                                    name="address.number"
-                                                    id="address.number"
-                                                    autoComplete="Rua"
-                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                                                />
-                                            </div>
-
-
-
-
 
                                         </div>
                                     </div>
