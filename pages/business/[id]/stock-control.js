@@ -90,7 +90,7 @@ function Products() {
                               onClick={() => {
                                 setInput(true);
                               }}
-                              className="flex inline-block px-6 py-2.5 bg-green-600 text-white font-small text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
+                              className="flex inline-block px-3 py-1.5 bg-green-600 text-white font-small text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
                             >
                               Entrada
                             </button>
@@ -99,7 +99,7 @@ function Products() {
                               onClick={() => {
                                 setInput(false);
                               }}
-                              className="flex inline-block px-6 py-2.5 bg-red-600 text-white font-small text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
+                              className="flex inline-block px-3 py-1.5 bg-red-600 text-white font-small text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out"
                             >
                               Saída
                             </button>
@@ -195,7 +195,7 @@ function Products() {
                                   resetForm();
                                 }}
                               >
-                                <Form>
+                                <Form className="flex">
                                   Saída:
                                   <Field
                                     id="quantity"

@@ -50,9 +50,7 @@ function CreateBusiness() {
                   await api.post("/business/create-business", values)
                 } catch (e) { console.log(e) }
               }}>
-              <form>
-                <input type="file" name="businessImg" id="businessImg" />
-              </form>
+
               <Form>
                 <div className="shadow overflow-hidden sm:rounded-md">
                   <div className="px-4 py-5 bg-white sm:p-6">
@@ -166,7 +164,7 @@ function CreateBusiness() {
                           Estado
                         </label>
                         <Field
-                          as="Select"
+                          as="select"
                           id="address.state"
                           name="address.state"
                           className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
