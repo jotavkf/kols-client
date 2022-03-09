@@ -19,9 +19,8 @@ export default function ForgotPassWord() {
                         initialValues={{ email: ''}}
                         onSubmit={async function (values) {
                             try {
-                                console.log(values)
                                 await axios.post("https://kols-server.herokuapp.com/resetPassword/forgot-password", values); // tem que passar o URL certo aqui
-                            } catch (e) { console.log(e) }
+                            } catch (e) { alert(`${e}`) }
                         }}>
                         <Form className="mt-8 space-y-6" >
                             <div className="rounded-md shadow-sm -space-y-px">

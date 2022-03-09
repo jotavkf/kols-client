@@ -11,7 +11,6 @@ export default function Business() {
 
   const router = useRouter();
   const { id } = router.query;
-  console.log(id);
 
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export default function Business() {
     fetchBusiness();
   }, [id]);
 
-  console.log(business);
+
 
   const [form, setForm] = useState({
     businessImg: "",
@@ -47,7 +46,7 @@ export default function Business() {
 
       const response = await api.post("/upload/image", uploadData);
 
-      console.log(response.data.url);
+
 
       return response.data.url;
     } catch (error) {
@@ -65,10 +64,10 @@ export default function Business() {
       const response = await api.patch(`/business/update/${id}`, {
         businessImg: businessImg,
       });
-      console.log("handle submit" + response.data);
+
     } catch (error) {
       if (error.response) {
-        console.log(error.response);
+        console.error(error.response);
       }
     }
   }

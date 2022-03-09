@@ -46,9 +46,9 @@ function CreateBusiness() {
               }}
               onSubmit={async function (values) {
                 try {
-                  console.log(values)
+
                   await api.post("/business/create-business", values)
-                } catch (e) { console.log(e) }
+                } catch (e) { console.error(e) }
               }}>
 
               <Form>
