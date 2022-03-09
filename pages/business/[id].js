@@ -11,13 +11,14 @@ export default function Business() {
 
   const router = useRouter();
   const { id } = router.query;
-
   console.log(id);
+
+
   useEffect(() => {
     async function fetchBusiness() {
       try {
         const response = await api.get(`/business/profile/${id}`);
-        setBusiness({ ...response.data });
+        setBusiness(response.data);
         setIsloading(false);
       } catch (error) {
         console.error(error);
@@ -160,15 +161,13 @@ export default function Business() {
                           name="businessImg"
                           onChange={handleChange}
                         />
-                      </form>
-                      <div className="ml-4 flex-shrink-0">
                         <button
                           className="font-medium text-indigo-600 hover:text-indigo-500 bg-green-400 px-6 py-2.5 text-white rounded"
                           type="submit"
                         >
                           Upload Logo
                         </button>
-                      </div>
+                      </form>
                     </li>
                   </ul>
                 </dd>

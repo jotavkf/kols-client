@@ -57,7 +57,7 @@ export default function Dashboard() {
                   <div key={cE._id} className="flex justify-center">
                     <div className="rounded-lg shadow-lg bg-white max-w-sm">
                       <Link href="#!">
-                        <img className="rounded-t-lg" src={cE.businessImg} alt="Logo" />
+                        <img width="200px" height="200px" className="rounded-t-lg" src={cE.businessImg} alt="Logo" />
                       </Link>
                       <div className="p-6">
                         <h5 className="text-gray-900 text-xl font-medium mb-2">{cE.name}</h5>

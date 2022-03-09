@@ -10,6 +10,7 @@ function Products() {
 
     const [isLoading, setIsloading] = useState(true)
     const [products, setProducts] = useState()
+    const [search, setSearch] = useState('')
 
     const router = useRouter()
     const { id } = router.query
@@ -27,6 +28,8 @@ function Products() {
         fetchProducts();
     }, [id])
 
+    console.log(search)
+
 
     return (
         <>
@@ -34,6 +37,7 @@ function Products() {
 
             <button type="button" className=" flexbox inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"><Link href={`/business/${id}/create-product`}>CRIAR PRODUTO</Link></button>
 
+            <input type='search' placeholder='Busque por um produto' onChange={(event) => { setSearch((event.target.value).toLocaleLowerCase()) }} />
 
             {!isLoading &&
 
@@ -53,21 +57,23 @@ function Products() {
                             </tr>
                         </thead>
                         <tbody>
-                            {products.map((cE) => {
-                                return (
-                                    <tr key={cE._id}>
-                                        <td>{cE.partNumber}</td>
-                                        <td>{cE.name}</td>
-                                        <td>{cE.quantity}</td>
-                                        <td>{cE.purchasePrice}</td>
-                                        <td>{cE.salePrice}</td>
-                                        <td>{cE.category}</td>
-                                        <td>{cE.supplier}</td>
-                                        <td>{cE.resupplyPoint}</td>
-                                        <td><Link href={`/business/${id}/product/${cE._id}`}>DETALHES</Link></td>
-                                    </tr>
-                                )
-                            })}
+                            {products
+                                .filter(cE => (cE.name).toLocaleLowerCase().includes(search))
+                                .map((cE) => {
+                                    return (
+                                        <tr key={cE._id}>
+                                            <td>{cE.partNumber}</td>
+                                            <td>{cE.name}</td>
+                                            <td>{cE.quantity}</td>
+                                            <td>{cE.purchasePrice}</td>
+                                            <td>{cE.salePrice}</td>
+                                            <td>{cE.category}</td>
+                                            <td>{cE.supplier}</td>
+                                            <td>{cE.resupplyPoint}</td>
+                                            <td><Link href={`/business/${id}/product/${cE._id}`}>DETALHES</Link></td>
+                                        </tr>
+                                    )
+                                })}
                         </tbody>
                     </table>
                 </>
