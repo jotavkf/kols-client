@@ -2,7 +2,7 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { api } from '../api/api.js'
 import Link from "next/link";
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -11,11 +11,14 @@ export default function SignUp() {
   const arrayDeEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO",]
   const router = useRouter()
 
+
+
+
   return (
     <div className='h-screen bg-gray-50 w-screen'>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
-        <div><Toaster/></div>
+          <div><Toaster /></div>
           <div>
             <img
               className="mx-auto h-12 w-auto"
@@ -28,8 +31,8 @@ export default function SignUp() {
           Depois vem o onSubmit, que é o que o botão roda.
           Form e Field são componentes do Formik, que aí facilitam a manipulação */}
           <Formik
-          validateOnChange={true}
-          validateOnBlur={true}
+            validateOnChange={true}
+            validateOnBlur={true}
             initialValues={{
               name: '',
               lastName: '',
@@ -54,33 +57,34 @@ export default function SignUp() {
               try {
                 await api.post("/users/create-user", values);
                 router.push('/login')
-              } catch (error) { 
+              } catch (error) {
                 console.log(error.response.data)
-                alert('Algo deu errado') }
+                alert('Algo deu errado')
+              }
             }}
             validate={values => {
               const errors = {
                 address: {}
               };
-                if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)){
-                  errors.email = 'Formato inválido de e-mail'
-                }
-                if (!/^\d{3}.\d{3}.\d{3}-\d{2}$/.test(values.cpf)){
-                  errors.cpf = 'Formato inválido de CPF'
-                }
-                if (!/(\d{1,2}.?)(\d{3}.?)(\d{3})(-?[0-9Xx]{1})/.test(values.rg)){
-                  errors.rg = 'Formato inválido de RG'
-                }
-                if (!/(^[0-9]{2})?(\s|-)?(9?[0-9]{4})-?([0-9]{4}$)/.test(values.phone)){
-                  errors.phone = 'Telefone inválido'
-                }
-                if (!/^([\d]{2}).?([\d]{3})-?([\d]{3})/.test(values.address.zipcode)){
-                  errors.address.zipcode = 'CEP inválido'
-                }
-                return errors
+              if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
+                errors.email = 'Formato inválido de e-mail'
+              }
+              if (!/^\d{3}.\d{3}.\d{3}-\d{2}$/.test(values.cpf)) {
+                errors.cpf = 'Formato inválido de CPF'
+              }
+              if (!/(\d{1,2}.?)(\d{3}.?)(\d{3})(-?[0-9Xx]{1})/.test(values.rg)) {
+                errors.rg = 'Formato inválido de RG'
+              }
+              if (!/(^[0-9]{2})?(\s|-)?(9?[0-9]{4})-?([0-9]{4}$)/.test(values.phone)) {
+                errors.phone = 'Telefone inválido'
+              }
+              if (!/^([\d]{2}).?([\d]{3})-?([\d]{3})/.test(values.address.zipcode)) {
+                errors.address.zipcode = 'CEP inválido'
+              }
+              return errors
             }}
           >
-           <Form className="mt-8 space-y-6" >
+            <Form className="mt-8 space-y-6" >
               <div className="rounded-md shadow-sm -space-y-px">
                 <div>
                   <Field

@@ -227,11 +227,6 @@ function Report() {
                   })}
               </tbody>
             </table>
-<<<<<<< HEAD
-            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-kolsdb-cimpm/embed/charts?id=62289d58-5f2f-4297-8114-4374b1c85f8d&maxDataAge=300&theme=light&autoRefresh=true"></iframe>
-=======
-
->>>>>>> 5dd7fefb64578fd6eec185d4e1949bfdc11078dd
             <div>
               <div className="graph">
                 {isLoading3 ? (

@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function Business() {
   const [isLoading, setIsloading] = useState(true);
   const [business, setBusiness] = useState({});
-  const [contaDesativada, setContadesativada] = useState("");
+  const [contaDesativada, setContadesativada] = useState(false);
 
   const router = useRouter();
   const { id } = router.query;
@@ -21,7 +21,6 @@ export default function Business() {
         setIsloading(false);
       } catch (error) {
         console.error(error);
-        setContadesativada(true);
       }
     }
     fetchBusiness();
