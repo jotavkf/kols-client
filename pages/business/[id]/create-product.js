@@ -12,7 +12,7 @@ function CreateProduct() {
 
     const router = useRouter()
     const { id } = router.query //id do business
-    console.log(id)
+
 
     return (
         <>
@@ -47,9 +47,9 @@ function CreateProduct() {
                             }}
                             onSubmit={async function (values, { resetForm }) {
                                 try {
-                                    console.log(values)
+
                                     await api.post(`/products/${id}/create-product`, values)
-                                } catch (e) { console.log(e) }
+                                } catch (e) { console.error(e) }
                                 resetForm()
                             }}>
 

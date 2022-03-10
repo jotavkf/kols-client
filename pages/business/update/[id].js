@@ -30,7 +30,7 @@ export default function BusinessUpdate() {
     fetchBusiness();
   }, [id]);
 
-  console.log(business)
+
 
 
 
@@ -86,9 +86,9 @@ export default function BusinessUpdate() {
                   }}
                   onSubmit={async function (values) {
                     try {
-                      console.log(values)
+
                       await api.patch(`/business/update/${id}`, values);
-                    } catch (e) { console.log(e) }
+                    } catch (e) { console.error(e) }
                   }}>
                   <Form>
                     <div className="shadow overflow-hidden sm:rounded-md">
@@ -270,7 +270,6 @@ export default function BusinessUpdate() {
                           onClick={async function () {
                             try {
                               await api.delete(`/business/${id}/disable-business`);
-                              console.log('deletado')
                             } catch (error) {
                               console.error(error);
                             }

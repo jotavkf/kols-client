@@ -3,7 +3,7 @@ import { createContext, useState, useEffect } from "react";
 const AuthContext = createContext({ token: "", user: {} });
 
 function AuthContextComponent(props) {
-  const [loggedInUser, setLoggedInUser] = useState({ token: "", user: {} });
+  const [loggedInUser, setLoggedInUser] = useState({ token: undefined, user: {} });
 
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
@@ -12,7 +12,7 @@ function AuthContextComponent(props) {
 
     if (parsedStoredUser.token) {
       setLoggedInUser(parsedStoredUser);
-    }
+    } else (setLoggedInUser({token: '', user: {}}))
   }, []);
 
   return (

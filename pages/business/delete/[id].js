@@ -16,7 +16,7 @@ function DesableBusiness() {
     const router = useRouter()
     const { id } = router.query
 
-    console.log(id)
+
 
     useEffect(() => {
         async function deleteBusiness() {
@@ -24,7 +24,7 @@ function DesableBusiness() {
                 const response = await api.delete(`/business/${id}/disable-business`);
                 setBusiness({ ...response.data });
                 setIsloading(false)
-                console.log(response.data)
+
             } catch (error) {
                 console.error(error);
             }

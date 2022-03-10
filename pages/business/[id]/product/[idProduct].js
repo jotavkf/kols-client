@@ -39,7 +39,7 @@ function Product() {
     function handleChangeProfit(event) {
         setProfit(event.target.value)
     }
-    console.log(taxes)
+
 
     function profitMath() {
 
@@ -137,10 +137,10 @@ function Product() {
                                             }}
                                             onSubmit={async function (values, { resetForm }) {
                                                 try {
-                                                    console.log(values)
+
                                                     await api.patch(`/products/product/update/${idProduct}`, values)
                                                     setOpenForm(false)
-                                                } catch (e) { console.log(e) }
+                                                } catch (e) { console.error(e) }
                                                 resetForm()
                                             }}>
 

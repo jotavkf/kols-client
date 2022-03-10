@@ -28,7 +28,7 @@ function Products() {
         fetchProducts();
     }, [id])
 
-    console.log(search)
+
 
 
     return (

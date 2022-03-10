@@ -21,10 +21,9 @@ export default function ResetPassword() {
                 const response = await axios.get(`https://kols-server.herokuapp.com/resetPassword/valid-token/${token.token}`);
                 setValidToken(true);
                 setIsloading(false);
-                console.log(response);
+                ;
             } catch (error) {
-                console.log(error.response);
-                console.error(error);
+                alert(`${error}`)
             }
         }
         validateToken();
@@ -64,11 +63,11 @@ export default function ResetPassword() {
                         initialValues={{ newPassword: '', newPassword2: ''}}
                         onSubmit={async function (values) {
                             try {
-                                console.log(values.newPassword)
+                                
                                 if (values.newPassword === values.newPassword2) {
                                     await axios.put(`https://kols-server.herokuapp.com/resetPassword/new-password/${token.token}`, {newPassword: values.newPassword})}
                                 else {alert ('As senhas não coincidem')};
-                            } catch (e) { console.log(e) }
+                            } catch (e) { alert('Algo deu errado') }
                         }}>
                         <Form className="mt-8 space-y-6" >
                             <div className="rounded-md shadow-sm -space-y-px">

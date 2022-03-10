@@ -124,14 +124,14 @@ function Products() {
                                     { resetForm }
                                   ) {
                                     try {
-                                      console.log(values);
+
                                       await api.patch(
                                         "products/input-product",
                                         values
                                       );
                                       setRerender(true);
                                     } catch (e) {
-                                      console.log(e);
+                                      console.error(e);
                                     }
                                     resetForm();
                                   }}
@@ -190,14 +190,14 @@ function Products() {
                                     { resetForm }
                                   ) {
                                     try {
-                                      console.log(values);
+
                                       await api.patch(
                                         "products/output-product",
                                         values
                                       );
                                       setRerender(true);
                                     } catch (e) {
-                                      console.log(e);
+                                      console.error(e);
                                     }
                                     resetForm();
                                   }}
