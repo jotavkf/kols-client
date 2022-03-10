@@ -51,7 +51,9 @@ export default function SignUp() {
 
             }}
             validate={values => {
-              const errors = {};
+              let errors = {
+                address: {}
+              };
                 if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)){
                   errors.email = 'Formato inválido de e-mail'
                 }
