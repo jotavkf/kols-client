@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
+    "@mongodb-js/charts-embed-dom": "^2.2.0",
     "axios": "^0.26.0",
     "chart.js": "^3.7.1",
     "formik": "^2.2.9",
