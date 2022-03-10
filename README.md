@@ -32,3 +32,10 @@ This project has been created in the third module at Ironhack São Paulo - Web D
 Back-end project for inventory control app (**mobile** and **web**)!
 
 [Click here](https://github.com/karenokasaki/kols-server)
+
+## Install
+To run the application on your localhost, clone the repo and then execute the commands below:
+
+- <code>$ git clone https://github.com/jotavkf/kols-client</code>
+- <code>$ cd kols-client npm install</code>
+- <code>$ npm run dev </code>
