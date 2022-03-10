@@ -227,7 +227,6 @@ function Report() {
                   })}
               </tbody>
             </table>
-
             <div>
               <div className="graph">
                 {isLoading3 ? (

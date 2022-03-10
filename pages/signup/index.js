@@ -2,7 +2,7 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { api } from '../api/api.js'
 import Link from "next/link";
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -11,11 +11,14 @@ export default function SignUp() {
   const arrayDeEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO",]
   const router = useRouter()
 
+
+
+
   return (
     <div className='h-full bg-gray-50 w-full'>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
-        <div><Toaster/></div>
+          <div><Toaster /></div>
           <div>
             <img
               className="mx-auto h-12 w-auto"
@@ -28,8 +31,8 @@ export default function SignUp() {
           Depois vem o onSubmit, que é o que o botão roda.
           Form e Field são componentes do Formik, que aí facilitam a manipulação */}
           <Formik
-          validateOnChange={true}
-          validateOnBlur={true}
+            validateOnChange={true}
+            validateOnBlur={true}
             initialValues={{
               name: '',
               lastName: '',
@@ -54,7 +57,7 @@ export default function SignUp() {
               try {
                 await api.post("/users/create-user", values);
                 router.push('/login')
-              } catch (error) { 
+              } catch (error) {
                 console.log(error.response.data)
                 alert(`${error.response.data}`) }
             }}
