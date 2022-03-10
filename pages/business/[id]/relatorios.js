@@ -227,9 +227,7 @@ function Report() {
                   )}
               </tbody>
             </table>
-
-
-
+            <iframe style="background: #FFFFFF;border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);" width="640" height="480" src="https://charts.mongodb.com/charts-kolsdb-cimpm/embed/charts?id=62289d58-5f2f-4297-8114-4374b1c85f8d&maxDataAge=300&theme=light&autoRefresh=true"></iframe>
             <div>
               <div className="graph">
                 {isLoading3 ? "Carregando..." : (<canvas className="graph" id="instanceChart" />)}
