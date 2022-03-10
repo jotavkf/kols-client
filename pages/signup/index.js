@@ -50,6 +50,24 @@ export default function SignUp() {
               } catch (e) { alert('Algo deu errado') }
 
             }}
+            validate={values => {
+              const errors = {};
+                if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)){
+                  errors.email = 'Formato inválido de e-mail'
+                }
+                if (!/^\d{3}.\d{3}.\d{3}-\d{2}$/.test(values.cpf)){
+                  errors.cpf = 'Formato inválido de CPF'
+                }
+                if (!/(\d{1,2}.?)(\d{3}.?)(\d{3})(-?[0-9Xx]{1})/.test(values.rg)){
+                  errors.rg = 'Formato inválido de RG'
+                }
+                if (!/(^[0-9]{2})?(\s|-)?(9?[0-9]{4})-?([0-9]{4}$)/.test(values.phone)){
+                  errors.phone = 'Telefone inválido'
+                }
+                if (!/^([\d]{2}).?([\d]{3})-?([\d]{3})/.test(values.address.zipcode)){
+                  errors.address.zipcode = 'CEP inválido'
+                }
+            }}
           >
             <Form className="mt-8 space-y-6" >
               <div className="rounded-md shadow-sm -space-y-px">
