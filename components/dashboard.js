@@ -28,7 +28,7 @@ export default function Dashboard() {
 
 
 
-  console.log(isLoading)
+
   return (<>
     <NavbarDash />
     {isLoading &&
