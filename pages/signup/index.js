@@ -2,16 +2,20 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { api } from '../api/api.js'
 import Link from "next/link";
+import {useRouter} from 'next/router';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
 export default function SignUp() {
   const arrayDeEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO",]
+  const router = useRouter()
 
   return (
     <div className='h-screen bg-gray-50 w-screen'>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
+        <div><Toaster/></div>
           <div>
             <img
               className="mx-auto h-12 w-auto"
@@ -24,6 +28,8 @@ export default function SignUp() {
           Depois vem o onSubmit, que é o que o botão roda.
           Form e Field são componentes do Formik, que aí facilitam a manipulação */}
           <Formik
+          validateOnChange={true}
+          validateOnBlur={true}
             initialValues={{
               name: '',
               lastName: '',
@@ -31,7 +37,7 @@ export default function SignUp() {
               birthdate: '',
               cpf: '',
               rg: '',
-              rgUF: '',
+              rgUF: 'AC',
               phone: '',
               address: {
                 street: '',
@@ -39,7 +45,7 @@ export default function SignUp() {
                 district: '',
                 city: '',
                 zipcode: '',
-                state: '',
+                state: 'AC',
               },
               password: '',
 
@@ -47,11 +53,13 @@ export default function SignUp() {
             onSubmit={async function (values) {
               try {
                 await api.post("/users/create-user", values);
-              } catch (e) { alert('Algo deu errado') }
-
+                router.push('/login')
+              } catch (error) { 
+                console.log(error.response.data)
+                alert('Algo deu errado') }
             }}
             validate={values => {
-              let errors = {
+              const errors = {
                 address: {}
               };
                 if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)){
@@ -69,9 +77,10 @@ export default function SignUp() {
                 if (!/^([\d]{2}).?([\d]{3})-?([\d]{3})/.test(values.address.zipcode)){
                   errors.address.zipcode = 'CEP inválido'
                 }
+                return errors
             }}
           >
-            <Form className="mt-8 space-y-6" >
+           <Form className="mt-8 space-y-6" >
               <div className="rounded-md shadow-sm -space-y-px">
                 <div>
                   <Field
@@ -108,17 +117,16 @@ export default function SignUp() {
                     id="cpf"
                     name="cpf"
                     placeholder="CPF"
-                    type="number"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
+                  <ErrorMessage name="cpf">{msg => toast.error(`${msg}`)}</ErrorMessage>
                 </div>
                 <div>
                   <Field
                     id="rg"
                     name="rg"
                     placeholder="RG"
-                    type="number"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
@@ -188,7 +196,6 @@ export default function SignUp() {
                     id="address.zipcode"
                     name="address.zipcode"
                     placeholder="CEP"
-                    type="number"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
@@ -231,12 +238,7 @@ export default function SignUp() {
                 <button
                   type="submit"
                   className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                  <span
-                    className="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
-                  </span>
-                  <Link href={"/business"}>Cadastrar</Link>
-
+                  Cadastrar
                 </button>
               </div>
             </Form>
