@@ -12,7 +12,7 @@ export default function SignUp() {
   const router = useRouter()
 
   return (
-    <div className='h-screen bg-gray-50 w-screen'>
+    <div className='h-full bg-gray-50 w-full'>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
         <div><Toaster/></div>
@@ -56,11 +56,11 @@ export default function SignUp() {
                 router.push('/login')
               } catch (error) { 
                 console.log(error.response.data)
-                alert('Algo deu errado') }
+                alert(`${error.response.data}`) }
             }}
           >
            <Form className="mt-8 space-y-6" >
-              <div className="rounded-md shadow-sm -space-y-px">
+              <div className="rounded-md shadow-sm space-y-px">
                 <div>
                 <label htmlFor="name" className="form-label inline-block mb-2 text-indigo-700">Nome</label>
                   <Field
