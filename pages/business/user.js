@@ -1,5 +1,5 @@
 import { api } from "../api/api";
-import NavbarDash from "../../components/NavbarDash";
+import Navbar from "../../components/Navbar";
 import { Formik, Form, Field } from 'formik';
 import { useEffect, useState } from "react";
 
@@ -28,7 +28,9 @@ function User() {
 
     return (
         <>
-            <NavbarDash />
+            <Navbar 
+                nav={{ name: 'Dashboard', href: '/business', current: true }}
+            />
             {!isLoading &&
                 <>
                     <div key={user._id} className="bg-white shadow overflow-hidden sm:rounded-lg">
