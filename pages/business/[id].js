@@ -3,6 +3,7 @@ import { api } from "../api/api";
 import { useRouter } from "next/router";
 import NavbarBusiness from "../../components/NavbarBusiness";
 import Link from "next/link";
+import toast, {Toaster} from "react-hot-toast"
 
 export default function Business() {
   const [isLoading, setIsloading] = useState(true);
@@ -64,6 +65,7 @@ export default function Business() {
         businessImg: businessImg,
       });
 
+      toast.success('Logo carregada com sucesso')
     } catch (error) {
       if (error.response) {
         console.error(error.response);
@@ -78,6 +80,7 @@ export default function Business() {
       {!isLoading && (
         <>
           <div>
+          <div><Toaster/></div>
             <div
               key={business._id}
               className="bg-white shadow overflow-hidden sm:rounded-lg flex justify-between"
