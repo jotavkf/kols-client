@@ -103,7 +103,7 @@ export default function BusinessUpdate() {
                               name="corporateName"
                               id="corporateName"
                               required={true}
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
                           <div className="col-span-6 sm:col-span-6">
@@ -114,7 +114,7 @@ export default function BusinessUpdate() {
                               type="text"
                               name="name"
                               id="name"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
 
@@ -127,7 +127,7 @@ export default function BusinessUpdate() {
                               name="cnpj"
                               id="cnpj"
                               placeholder="xx.xxx.xxx/xxxx-xx"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
 
@@ -140,7 +140,7 @@ export default function BusinessUpdate() {
                               name="ie"
                               id="ie"
                               placeholder="xxx.xxx.xxx.xxx"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
 
@@ -153,7 +153,7 @@ export default function BusinessUpdate() {
                               name="im"
                               id="im"
                               placeholder="xxxxxxx/xxx-x"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
 
@@ -166,7 +166,7 @@ export default function BusinessUpdate() {
                               name="email"
                               id="email"
                               autoComplete="email"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               placeholder="empresa@empresa.com"
                             />
                           </div>
@@ -180,7 +180,7 @@ export default function BusinessUpdate() {
                               name="phone"
                               id="phone"
                               autoComplete="address-level2"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               placeholder="(xx) xxxxx-xxxx"
                             />
                           </div>
@@ -193,7 +193,7 @@ export default function BusinessUpdate() {
                               name="address.zipcode"
                               id="address.zipcode"
                               autoComplete="zipcode"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                               placeholder="00000-000"
                             />
                           </div>
@@ -206,7 +206,7 @@ export default function BusinessUpdate() {
                               as="select"
                               id="address.state"
                               name="address.state"
-                              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm"
                             >
                               {arrayDeEstados.map((cE) => { return <option key={cE} value={`${cE}`}>{cE}</option> })}
                             </Field>
@@ -221,7 +221,7 @@ export default function BusinessUpdate() {
                               name="address.city"
                               id="address.city"
                               autoComplete="address-level2"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
                           <div className="col-span-2">
@@ -233,7 +233,7 @@ export default function BusinessUpdate() {
                               name="address.number"
                               id="address.number"
                               autoComplete="Rua"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
                           <div className="col-span-3">
@@ -245,7 +245,7 @@ export default function BusinessUpdate() {
                               name="address.street"
                               id="address.street"
                               autoComplete="Rua"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
 
@@ -258,7 +258,7 @@ export default function BusinessUpdate() {
                               name="address.district"
                               id="address.district"
                               autoComplete="address-level1"
-                              className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                              className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                             />
                           </div>
                         </div>
@@ -278,7 +278,7 @@ export default function BusinessUpdate() {
                           <Link href={`/business/delete/${id}`}> DELETER EMPRESA </Link></button>
                         <button
                           type="submit"
-                          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                         >
                           Salvar
                         </button>

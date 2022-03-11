@@ -65,89 +65,89 @@ export default function SignUp() {
            <Form className="mt-8 space-y-6" >
               <div className="rounded-md shadow-sm space-y-px">
                 <div>
-                <label htmlFor="name" className="form-label inline-block mb-2 text-indigo-700">Nome</label>
+                <label htmlFor="name" className="form-label inline-block mb-2 text-emerald-700">Nome</label>
                   <Field
                     id="name"
                     name="name"
                     placeholder="João"
                     type="text"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
-                <label htmlFor="lastName" className="form-label inline-block mb-2 text-indigo-700 mt-3">Sobrenome</label>
+                <label htmlFor="lastName" className="form-label inline-block mb-2 text-emerald-700 mt-3">Sobrenome</label>
                   <Field
                     id="lastName"
                     name="lastName"
                     placeholder="da Silva"
                     type="text"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
-                <label htmlFor="birthdate" className="form-label inline-block mb-2 text-indigo-700 mt-3">Data de Nascimento</label>
+                <label htmlFor="birthdate" className="form-label inline-block mb-2 text-emerald-700 mt-3">Data de Nascimento</label>
                   <Field
                     id="birthdate"
                     name="birthdate"
                     type="date"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
-                <label htmlFor="cpf" className="form-label inline-block mb-2 text-indigo-700 mt-3">CPF (com pontos e traço)</label>
+                <label htmlFor="cpf" className="form-label inline-block mb-2 text-emerald-700 mt-3">CPF (com pontos e traço)</label>
                   <Field
                     id="cpf"
                     name="cpf"
                     placeholder="Ex: 000.000.000-00"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
-                <label htmlFor="RG" className="form-label inline-block mb-2 text-indigo-700 mt-3">RG (com pontos e traço)</label>
+                <label htmlFor="RG" className="form-label inline-block mb-2 text-emerald-700 mt-3">RG (com pontos e traço)</label>
                   <Field
                     id="rg"
                     name="rg"
                     placeholder="Ex: 00.000.000-0"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
-                <label htmlFor="rgUF" className="form-label inline-block mb-2 text-indigo-700 mt-3">UF (RG)</label>
+                <label htmlFor="rgUF" className="form-label inline-block mb-2 text-emerald-700 mt-3">UF (RG)</label>
                   <Field as="select"
                     id="rgUF"
                     name="rgUF"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   >
                     <option value="" disabled>Estado</option>
                     {arrayDeEstados.map((cE) => { return <option key={cE} value={`${cE}`}>{cE}</option> })}
                   </Field>
                 </div>
                 <div>
-                <label htmlFor="phone" className="form-label inline-block mb-2 text-indigo-700 mt-3">Telefone</label>
+                <label htmlFor="phone" className="form-label inline-block mb-2 text-emerald-700 mt-3">Telefone</label>
                   <Field
                     id="phone"
                     name="phone"
                     placeholder="Telefone"
                     type="number"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
-                <label htmlFor="phone" className="form-label inline-block mb-2 text-indigo-700 mt-3">Endereço</label>
+                <label htmlFor="phone" className="form-label inline-block mb-2 text-emerald-700 mt-3">Endereço</label>
                   <Field
                     id="address.street"
                     name="address.street"
                     placeholder="Rua (Ex: Rua das Flores)"
                     type="text"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -157,7 +157,7 @@ export default function SignUp() {
                     placeholder="Número (Ex: 94)"
                     type="number"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -167,7 +167,7 @@ export default function SignUp() {
                     placeholder="Distrito/Bairro (Ex: Centro)"
                     type="text"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -177,7 +177,7 @@ export default function SignUp() {
                     placeholder="Cidade (Ex: São Paulo)"
                     type="text"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -186,7 +186,7 @@ export default function SignUp() {
                     name="address.zipcode"
                     placeholder="CEP com traço (Ex: 00000-000)"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -195,7 +195,7 @@ export default function SignUp() {
                       id="address.state"
                       name="address.state"
                       required={true}
-                      className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                      className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                     >
                     <option value="" disabled>Estado</option>
                       {arrayDeEstados.map((cE) => { return <option key={cE} value={`${cE}`}>{cE}</option> })}
@@ -203,14 +203,14 @@ export default function SignUp() {
                   </div>
                 </div>
                 <div>
-                <label htmlFor="phone" className="form-label inline-block mb-2 text-indigo-700 mt-3">Conta</label>
+                <label htmlFor="phone" className="form-label inline-block mb-2 text-emerald-700 mt-3">Conta</label>
                   <Field
                     id="email"
                     name="email"
                     placeholder="E-mail"
                     type="email"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
@@ -220,7 +220,7 @@ export default function SignUp() {
                     placeholder="Senha"
                     type="password"
                     required={true}
-                    className="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                   />
                 </div>
               </div>
@@ -228,7 +228,7 @@ export default function SignUp() {
               <div>
                 <button
                   type="submit"
-                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
                   Cadastrar
                 </button>
               </div>

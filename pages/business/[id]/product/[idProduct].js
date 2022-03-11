@@ -93,13 +93,13 @@ function Product() {
                                 <div className="mt-1 text-sm  sm:mt-0 sm:col-span-1 px-4">Impostos (%)</div>
                                 <input
                                     type="number"
-                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     onChange={handleChangeTaxes}
                                 />
                                 <div className="mt-1 text-sm  sm:mt-0 sm:col-span-1 px-4">Lucro (%)</div>
                                 <input
                                     type="number"
-                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     onChange={handleChangeProfit}
                                 />
 
@@ -157,7 +157,7 @@ function Product() {
                                                                     name="name"
                                                                     id="name"
                                                                     required={true}
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
                                                             <div className="col-span-6 sm:col-span-3">
@@ -168,7 +168,7 @@ function Product() {
                                                                     type="text"
                                                                     name="desc"
                                                                     id="desc"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
 
@@ -181,7 +181,7 @@ function Product() {
                                                                     name="partNumber"
                                                                     id="partNumber"
                                                                     placeholder="SKU"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
 
@@ -194,7 +194,7 @@ function Product() {
                                                                     name="category"
                                                                     id="category"
                                                                     placeholder="Matéria Prima / Embalagem"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
 
@@ -206,7 +206,7 @@ function Product() {
                                                                     type="number"
                                                                     name="purchasePrice"
                                                                     id="purchasePrice"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
 
@@ -219,7 +219,7 @@ function Product() {
                                                                     name="salePrice"
                                                                     id="salePrice"
                                                                     autoComplete="address-level2"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
                                                             <div className="col-span-6 sm:col-span-2">
@@ -230,7 +230,7 @@ function Product() {
                                                                     type="number"
                                                                     name="quantity"
                                                                     id="quantity"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
 
@@ -243,7 +243,7 @@ function Product() {
                                                                     name="resupplyPoint"
                                                                     id="resupplyPoint"
                                                                     autoComplete="address-level2"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
                                                             <div className="col-span-3 sm:col-span-3 lg:col-span-2">
@@ -254,7 +254,7 @@ function Product() {
                                                                     type="text"
                                                                     name="supplier"
                                                                     id="supplier"
-                                                                    className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                                                    className="mt-1 focus:ring-emerald-500 focus:border-emerald-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                                                 />
                                                             </div>
 
@@ -263,7 +263,7 @@ function Product() {
                                                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                                                         <button
                                                             type="submit"
-                                                            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                                            className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
                                                         >
                                                             Salvar
                                                         </button>

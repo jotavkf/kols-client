@@ -42,7 +42,7 @@ export default function Home() {
                       />
                     </Link>
                     <div className="mr-2 flex items-center md:hidden">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
                         <span className="sr-only">Open main menu</span>
                         <MenuIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -56,7 +56,7 @@ export default function Home() {
                     </Link>
                   ))}
                   <Link href="/login">
-                    <button className="font-medium text-indigo-600 hover:text-indigo-500">Login</button>
+                    <button className="font-medium text-emerald-600 hover:text-emerald-500">Login</button>
                   </Link>
                 </div>
               </nav>
@@ -85,7 +85,7 @@ export default function Home() {
                       />
                     </div>
                     <div className="mr-2">
-                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                      <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-emerald-500">
                         <span className="sr-only">Close main menu</span>
                         <XIcon className="h-6 w-6" aria-hidden="true" />
                       </Popover.Button>
@@ -106,7 +106,7 @@ export default function Home() {
                     href="/login"
                     
                   >
-                    <button className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">Login</button>
+                    <button className="block w-full px-5 py-3 text-center font-medium text-emerald-600 bg-gray-50 hover:bg-gray-100">Login</button>
                   </Link>
                 </div>
               </Popover.Panel>
@@ -117,8 +117,8 @@ export default function Home() {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                 <span className="block xl:inline">Controle o seu</span>{' '}
-                <span className="block text-indigo-600 xl:inline">estoque</span> {' '}
-                <span className="block xl:inline">com </span>{' '} <p className="block text-indigo-600 xl:inline">Kols</p> 
+                <span className="block text-emerald-600 xl:inline">estoque</span> {' '}
+                <span className="block xl:inline">com </span>{' '} <p className="block text-emerald-600 xl:inline">Kols</p> 
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Kols é uma plataforma de gerenciamento para o seu negócio. Crie diferentes empresas e administre seus empreendimentos em um só lugar.
@@ -128,7 +128,7 @@ export default function Home() {
                   <Link
                     href="/signup"
                   >
-                    <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">Crie sua conta agora mesmo</button>
+                    <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 md:py-4 md:text-lg md:px-10">Crie sua conta agora mesmo</button>
                   </Link>
                 </div>
               </div>
