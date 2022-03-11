@@ -23,7 +23,7 @@ export default function ForgotPassWord() {
                             try {
                                 await axios.post("https://kols-server.herokuapp.com/resetPassword/forgot-password", values)
                                 toast.success('Email enviado com o Link para resetar a senha'); // tem que passar o URL certo aqui
-                            } catch (e) { alert(`${e}`) }
+                            } catch (e) { toast.error(`${e}`) }
                         }}>
                         <Form className="mt-8 space-y-6" >
                             <div className="rounded-md shadow-sm -space-y-px">
