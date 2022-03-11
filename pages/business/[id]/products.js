@@ -50,7 +50,7 @@ function Products() {
                 <>
                     <table className="table-auto m-4  w-full border shadow-md">
                         <thead>
-                            <tr className='text-s  text-center bg-slate-400 font-normal h-8'>
+                            <tr className='text-s text-slate-100 text-center bg-slate-400 font-normal h-8'>
                                 <th >Part Number</th>
                                 <th>Nome</th>
                                 <th>Quantidade</th>
@@ -66,13 +66,13 @@ function Products() {
                                 .map((cE) => {
                                     return (
                                         <tr key={cE._id} className="tx-base text-center">
-                                            <td className='py-5 '>{cE.partNumber}</td>
-                                            <td className='py-5'>{cE.name}</td>
-                                            <td className='py-5'>{cE.quantity}</td>
-                                            <td className='py-5'>R$ {cE.purchasePrice},00</td>
-                                            <td className='py-5'>R$ {cE.salePrice},00</td>
-                                            <td className='py-5'>{cE.resupplyPoint}</td>
-                                            <td className='py-5'><Link href={`/business/${id}/product/${cE._id}`}>DETALHES</Link></td>
+                                            <td className='py-5 border border-y-emerald-50  '>{cE.partNumber}</td>
+                                            <td className='py-5 border border-y-emerald-50 text-bold'>{cE.name}</td>
+                                            <td className='py-5 border border-y-emerald-50'>{cE.quantity} und.</td>
+                                            <td className='py-5 border border-y-emerald-50'>R$ {cE.purchasePrice},00</td>
+                                            <td className='py-5 border border-y-emerald-50'>R$ {cE.salePrice},00</td>
+                                            <td className='py-5 border border-y-emerald-50'>{cE.resupplyPoint} und.</td>
+                                            <td className='py-5 border border-y-emerald-50'><Link href={`/business/${id}/product/${cE._id}`}>DETALHES</Link></td>
                                         </tr>
                                     )
                                 })}

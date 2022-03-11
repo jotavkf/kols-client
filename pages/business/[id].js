@@ -142,7 +142,7 @@ export default function Business() {
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 flex items-center">
                     <ul
                       role="list"
-                      className="flex border  rounded-md divide-y divide-gray-200 items-center"
+                      className="flex border border-gray-200 rounded-md divide-y divide-gray-200 items-center"
                     >
                       <li className="flex">
                         <form onSubmit={handleSubmit} className="flex items-center block text-sm font-medium text-gray-900 dark:text-gray-300 mr-10">

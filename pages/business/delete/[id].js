@@ -38,7 +38,7 @@ function DesableBusiness() {
     return (<>
         <NavbarBusiness />
 
-        <div className="text-3xl font-bold text-gray-900">Sua conta foi desativada! Para ativá-la, entre no seu perfil!</div>
+        <div className="text-3xl font-bold text-gray-900">Sua empresa foi desativada! Para ativá-la, entre no seu perfil!</div>
 
 
     </>);
