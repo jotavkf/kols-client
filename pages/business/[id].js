@@ -160,7 +160,7 @@ export default function Business() {
                           onChange={handleChange}
                         />
                         <button
-                          className="font-medium text-indigo-600 hover:text-indigo-500 bg-green-400 px-6 py-2.5 text-white rounded"
+                          className="font-medium text-emerald-600 hover:text-emerald-500 bg-green-400 px-6 py-2.5 text-white rounded"
                           type="submit"
                         >
                           Upload Logo

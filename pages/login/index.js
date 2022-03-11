@@ -14,7 +14,7 @@ export default function Login() {
     const router = useRouter() // Instancia o router
 
     return (
-        <div className='h-screen bg-gray-50 w-screen'> {/* Div que define a ocupação da tela através do viewport + cores */}
+        <div className='h-full bg-gray-50 w-full'> {/* Div que define a ocupação da tela através do viewport + cores */}
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                 <div><Toaster/></div>
@@ -27,7 +27,7 @@ export default function Login() {
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Entre em sua conta</h2>
                         <p className="mt-2 text-center text-sm text-gray-600">
                             <Link href="/login/forgot-password">
-                                <button className="font-medium text-indigo-600 hover:text-indigo-500">Esqueceu a senha?</button>
+                                <button className="font-medium text-emerald-600 hover:text-emerald-500">Esqueceu a senha?</button>
                             </Link>
                         </p>
                     </div>
@@ -56,7 +56,7 @@ export default function Login() {
                                     placeholder="E-mail"
                                     type="text"
                                     required={true}
-                                    className="mb-3 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    className="mb-3 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                                 />
                                 <ErrorMessage name="email">{msg => 
                                     <div className="bg-red-100 rounded-lg py-5 px-6 my-5 text-base text-red-700 inline-flex items-center w-full" role="alert">
@@ -74,13 +74,13 @@ export default function Login() {
                                     placeholder="Senha"
                                     type="password"
                                     required={true}
-                                    className="mt-5 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    className="mt-5 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 focus:z-10 sm:text-sm"
                                 />
                             </div>
                             <div>
                                 <button
                                     type="submit"
-                                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500">
                                     <span
                                         className="absolute left-0 inset-y-0 flex items-center pl-3">
                                     </span>
