@@ -24,7 +24,9 @@ function DesableBusiness() {
                 const response = await api.delete(`/business/${id}/disable-business`);
                 setBusiness({ ...response.data });
                 setIsloading(false)
-
+                setTimeout(() => {
+                    router.push("/business")
+                }, 3000);
             } catch (error) {
                 console.error(error);
             }
@@ -33,10 +35,10 @@ function DesableBusiness() {
     }, [id])
 
 
-    return (<>DESATIVAR CONTA
+    return (<>
         <NavbarBusiness />
 
-        Sua conta foi desativada!
+        <div className="text-3xl font-bold text-gray-900">Sua conta foi desativada! Para ativá-la, entre no seu perfil!</div>
 
 
     </>);

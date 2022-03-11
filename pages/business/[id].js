@@ -73,14 +73,13 @@ export default function Business() {
 
   return (
     <>
-      TODAS AS INFORMAÇÕES DA EMPRESA COM SEU RESPECTIVO ID
       <NavbarBusiness />
       {contaDesativada && (
         <>
           <p>Essa conta está desativa.</p>
           <button
             type="button"
-            className=" flexbox inline-block px-6 py-2.5 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
+            className=" inline-block px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out"
           >
             <Link href={`/business/active/${id}`}>ATIVAR CONTA</Link>
           </button>
@@ -101,7 +100,7 @@ export default function Business() {
           </div>
           <button
             type="button"
-            className=" flexbox inline-block px-4 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            className=" inline-block px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out"
           >
             <Link href={`/business/update/${id}/`}> EDITAR EMPRESA</Link>
           </button>
@@ -142,7 +141,7 @@ export default function Business() {
                 </dd>
               </div>
 
-              <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+              <div className=" bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt className="text-sm font-medium text-gray-500">
                   Logo da Empresa
                   <img src={business.businessImg} alt="Logo" />
@@ -150,17 +149,18 @@ export default function Business() {
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   <ul
                     role="list"
-                    className="border border-gray-200 rounded-md divide-y divide-gray-200"
+                    className="flexbox border border-gray-200 rounded-md divide-y divide-gray-200 items-center"
                   >
-                    <li className="pl-3 pr-4 py-3 flex justify-between items-center text-sm">
-                      <form onSubmit={handleSubmit}>
+                    <li >
+                      <form onSubmit={handleSubmit} className="flex items-center block text-sm font-medium text-gray-900 dark:text-gray-300">
                         <input
                           type="file"
                           name="businessImg"
                           onChange={handleChange}
+                          className="flexbox block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                         />
                         <button
-                          className="font-medium text-emerald-600 hover:text-emerald-500 bg-green-400 px-6 py-2.5 text-white rounded"
+                          className="font-medium text-emerald-900 hover:text-white items-center bg-emerald-600 px-6 py-1 text-white rounded"
                           type="submit"
                         >
                           Upload Logo

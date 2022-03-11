@@ -1,15 +1,18 @@
 import { api } from "../api/api";
 import Navbar from "../../components/Navbar";
 import { Formik, Form, Field } from 'formik';
+import { useRouter } from 'next/router';
+
 
 
 function CreateBusiness() {
   const arrayDeEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO",]
+  const router = useRouter()
 
   return (
     <>
       <Navbar
-      nav={{ name: 'Dashboard', href: '/business', current: true }} />
+        nav={{ name: 'Dashboard', href: '/business', current: true }} />
 
       <div className="hidden sm:block" aria-hidden="true">
         <div className="py-5">
@@ -47,8 +50,9 @@ function CreateBusiness() {
               }}
               onSubmit={async function (values) {
                 try {
-
                   await api.post("/business/create-business", values)
+                  router.push('/business')
+
                 } catch (e) { console.error(e) }
               }}>
 
