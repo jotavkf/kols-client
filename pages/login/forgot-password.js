@@ -1,11 +1,13 @@
 import { Formik, Form, Field } from 'formik';
 import axios from "axios";
+import toast, {Toaster} from 'react-hot-toast';
 
 export default function ForgotPassWord() {
     return (
         <div className='h-screen bg-gray-50 w-screen'>
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
+                <div><Toaster/></div>
                     <div>
                         <img
                             className="mx-auto h-12 w-auto"
@@ -19,7 +21,8 @@ export default function ForgotPassWord() {
                         initialValues={{ email: ''}}
                         onSubmit={async function (values) {
                             try {
-                                await axios.post("https://kols-server.herokuapp.com/resetPassword/forgot-password", values); // tem que passar o URL certo aqui
+                                await axios.post("https://kols-server.herokuapp.com/resetPassword/forgot-password", values)
+                                toast.success('Email enviado com o Link para resetar a senha'); // tem que passar o URL certo aqui
                             } catch (e) { alert(`${e}`) }
                         }}>
                         <Form className="mt-8 space-y-6" >
