@@ -14,7 +14,7 @@ export default function Login() {
     const router = useRouter() // Instancia o router
 
     return (
-        <div className='h-full bg-gray-50 w-full'> {/* Div que define a ocupação da tela através do viewport + cores */}
+        <div className='h-screen bg-gray-50 w-screen'> {/* Div que define a ocupação da tela através do viewport + cores */}
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                 <div><Toaster/></div>
