@@ -1,74 +1,107 @@
-import { useState, useEffect } from "react";
-import Chart from "../../../components/Chart";
+import { useRouter } from "next/router";
+import { api } from "../../api/api";
 import NavbarBusiness from "../../../components/NavbarBusiness";
+import { useEffect, useState } from "react";
+import Chart from "chart.js/auto";
 
 function Report() {
-  // const business = localStorage.getItem("loggedInBusiness");
-  // console.log(business);
-  // const [filterBusiness, setFilterBusiness] = useState({});
-  // const [id, setId] = useState();
+  //states dos produtos
+  const [isLoading, setIsloading] = useState(true);
+  const [products, setProducts] = useState();
 
-  // useEffect(() => {
-  //   setId(localStorage.getItem("loggedInBusiness"));
-  //   const parsedBusiness = JSON.parse(id || '""');
-  //   setFilterBusiness({ business: parsedBusiness });
-  // }, [id]);
+  //state dos logs
+  const [isLoading2, setIsloading2] = useState(true);
+  const [logs, setLogs] = useState();
 
-  // console.log(filterBusiness);
+  //state do gráfico
+  const [isLoading3, setIsloading3] = useState(true);
+  const [chart, setChart] = useState(null);
+  const [chartData, setChartData] = useState({});
+
+  const router = useRouter();
+  const { id } = router.query;
+
+  //CONSUMINDO API DO BANCO DE DADOS
+  useEffect(() => {
+    async function Products() {
+      try {
+        const response = await api.get(`/products/${id}`);
+        setProducts(response.data);
+        setIsloading(false);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    Products();
+
+    async function data() {
+      try {
+        const response = await api.get(`/business/${id}/log`);
+        setLogs(response.data);
+        setIsloading2(false);
+        setIsloading3(false);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    data();
+  }, [id]);
+
+  //GRÁFICO
+  useEffect(() => {
+    if (!isLoading3) {
+      // se loading for false (api já terminou de enviar as informações), renderizar o chart
+      function renderChart() {
+        const ctx = document.getElementById("instanceChart").getContext("2d");
+
+        if (chart) {
+          chart.destroy();
+        }
+
+        //DATA E QUANTIDADE DE PRODUTOS - SAÍDA
+        const dates = logs
+          .filter(cE => cE.quantityOutput)
+          .map(cE => cE.date.slice(0, 10));
+        const values = logs
+          .filter(cE => cE.quantityOutput)
+          .map(cE => cE.quantityOutput);
+        const instanceChart = new Chart(ctx, {
+          //config
+          type: "line",
+          data: {
+            labels: dates,
+            datasets: [
+              {
+                label: "Saídas de Produtos",
+                data: values,
+                borderColor: "rgb(21, 114, 161)",
+                tension: 0.2,
+              },
+              /* {
+                label: "Preço Bitcoin no BRASIL (valores em reais R$)",
+                data: Object.values(dataBRL),
+                borderColor: 'rgb(101, 93, 138)',
+                tension: 0.2
+            },
+            {
+                label: "Preço Bitcoin na CHINA (valores em Yuan ¥)",
+                data: Object.values(dataCNY),
+                borderColor: 'rgb(243, 197, 197)',
+                tension: 0.2
+            } */
+            ],
+          },
+        });
+        setChart(instanceChart);
+      }
+      renderChart();
+    }
+  }, [isLoading3, chartData]);
 
   return (
     <>
       <NavbarBusiness />
-
-      <div style={{ display: "flex" }}>
-        <Chart
-          height={"410px"}
-          width={"559px"}
-          chartId={"622a7e59-3d53-43cb-8393-14f3e5eb28bb"}
-          filter={""}
-        />
-        <Chart
-          height={"410px"}
-          width={"938px"}
-          chartId={"6228fe16-5281-4d8a-8e50-020fbb582356"}
-          filter={""}
-        />
-      </div>
-      <div style={{ display: "flex" }}>
-        <Chart
-          height={"410px"}
-          width={"559px"}
-          chartId={"62290680-9d1d-4e8f-883f-3b41b3239265"}
-          filter={""}
-        />
-        <Chart
-          height={"410px"}
-          width={"559px"}
-          chartId={"68674fb0-d71f-4025-b050-9d548bc14929"}
-          filter={""}
-        />
-        <Chart
-          height={"410px"}
-          width={"369px"}
-          chartId={"622a3694-7bb4-490a-82e5-9ea31197af58"}
-          filter={""}
-        />
-      </div>
       <div>
-<<<<<<< HEAD
-        <Chart
-          height={"410px"}
-          width={"938px"}
-          chartId={"622a73bf-efdd-4f9b-8eb2-37dce878d992"}
-          filter={""}
-        />
-        <Chart
-          height={"410px"}
-          width={"938px"}
-          chartId={"e95ccddf-4581-40b8-b13e-f4373bebe685"}
-          filter={""}
-        />
-=======
         {!isLoading && (
           <>
             <h1>Produtos em Ponto de Pedido</h1>
@@ -194,6 +227,7 @@ function Report() {
                   })}
               </tbody>
             </table>
+
             <div>
               <div className="graph">
                 {isLoading3 ? (
@@ -205,7 +239,6 @@ function Report() {
             </div>
           </>
         )}
->>>>>>> e053778672da0526ce49b23155bb59f366c0abc1
       </div>
     </>
   );
