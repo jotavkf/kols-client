@@ -2,6 +2,7 @@ import { Formik, Form, Field } from 'formik';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Router } from 'next/router';
 
 export default function ResetPassword() {
 
@@ -10,6 +11,7 @@ export default function ResetPassword() {
     const [validToken, setValidToken] = useState(false)
     const [isLoading, setIsloading] = useState(true)
     const [token, setToken] = useState()
+    
 
     useEffect(() => {
         async function validateToken() {
@@ -65,7 +67,8 @@ export default function ResetPassword() {
                             try {
                                 
                                 if (values.newPassword === values.newPassword2) {
-                                    await axios.put(`https://kols-server.herokuapp.com/resetPassword/new-password/${token.token}`, {newPassword: values.newPassword})}
+                                    await axios.put(`https://kols-server.herokuapp.com/resetPassword/new-password/${token.token}`, {newPassword: values.newPassword})
+                                    router.push('/login')}
                                 else {alert ('As senhas não coincidem')};
                             } catch (e) { alert('Algo deu errado') }
                         }}>
