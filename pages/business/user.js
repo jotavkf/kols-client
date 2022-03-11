@@ -1,5 +1,5 @@
 import { api } from "../api/api";
-import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar";
 import { Formik, Form, Field } from 'formik';
 import { useEffect, useState } from "react";
 
