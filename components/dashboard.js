@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState, useContext } from "react";
 import { api } from "../pages/api/api";
-import NavbarDash from "./NavbarDash";
+import Navbar from "./Navbar";
 
 
 export default function Dashboard() {
@@ -30,7 +30,8 @@ export default function Dashboard() {
 
 
   return (<>
-    <NavbarDash />
+    <Navbar
+      nav={{ name: 'Dashboard', href: '/business', current: true }} />
     {isLoading &&
       <button type="button" className="bg-emerald-500 ..." disabled>
         <svg className="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
