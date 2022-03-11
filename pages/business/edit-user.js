@@ -1,5 +1,5 @@
 import { api } from "../api/api";
-import NavbarDash from "../../components/NavbarDash";
+import Navbar from "./Navbar";
 import { Formik, Form, Field } from 'formik';
 import { useEffect, useState } from "react";
 
@@ -31,7 +31,7 @@ function EditUser() {
 
     return (
         <>
-            <NavbarDash />
+            <Navbar />
             {!isLoading &&
                 <>
                     <div className="hidden sm:block" aria-hidden="true">

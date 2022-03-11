@@ -1,5 +1,5 @@
 import { api } from "../api/api";
-import NavbarDash from "../../components/NavbarDash";
+import Navbar from "./Navbar";
 import { Formik, Form, Field } from 'formik';
 
 
@@ -8,7 +8,7 @@ function CreateBusiness() {
 
   return (
     <>
-      <NavbarDash />
+      <Navbar />
 
       <div className="hidden sm:block" aria-hidden="true">
         <div className="py-5">
