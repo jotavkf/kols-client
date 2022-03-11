@@ -2,7 +2,7 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { api } from '../api/api.js'
 import Link from "next/link";
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import toast, { Toaster } from 'react-hot-toast';
 
 
@@ -11,11 +11,14 @@ export default function SignUp() {
   const arrayDeEstados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO",]
   const router = useRouter()
 
+
+
+
   return (
-    <div className='h-screen bg-gray-50 w-screen'>
+    <div className='h-full bg-gray-50 w-full'>
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
-        <div><Toaster/></div>
+          <div><Toaster /></div>
           <div>
             <img
               className="mx-auto h-12 w-auto"
@@ -28,8 +31,8 @@ export default function SignUp() {
           Depois vem o onSubmit, que é o que o botão roda.
           Form e Field são componentes do Formik, que aí facilitam a manipulação */}
           <Formik
-          validateOnChange={true}
-          validateOnBlur={true}
+            validateOnChange={true}
+            validateOnBlur={true}
             initialValues={{
               name: '',
               lastName: '',
@@ -37,7 +40,7 @@ export default function SignUp() {
               birthdate: '',
               cpf: '',
               rg: '',
-              rgUF: 'AC',
+              rgUF: '',
               phone: '',
               address: {
                 street: '',
@@ -45,7 +48,7 @@ export default function SignUp() {
                 district: '',
                 city: '',
                 zipcode: '',
-                state: 'AC',
+                state: '',
               },
               password: '',
 
@@ -54,94 +57,79 @@ export default function SignUp() {
               try {
                 await api.post("/users/create-user", values);
                 router.push('/login')
-              } catch (error) { 
+              } catch (error) {
                 console.log(error.response.data)
-                alert('Algo deu errado') }
-            }}
-            validate={values => {
-              const errors = {
-                address: {}
-              };
-                if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)){
-                  errors.email = 'Formato inválido de e-mail'
-                }
-                if (!/^\d{3}.\d{3}.\d{3}-\d{2}$/.test(values.cpf)){
-                  errors.cpf = 'Formato inválido de CPF'
-                }
-                if (!/(\d{1,2}.?)(\d{3}.?)(\d{3})(-?[0-9Xx]{1})/.test(values.rg)){
-                  errors.rg = 'Formato inválido de RG'
-                }
-                if (!/(^[0-9]{2})?(\s|-)?(9?[0-9]{4})-?([0-9]{4}$)/.test(values.phone)){
-                  errors.phone = 'Telefone inválido'
-                }
-                if (!/^([\d]{2}).?([\d]{3})-?([\d]{3})/.test(values.address.zipcode)){
-                  errors.address.zipcode = 'CEP inválido'
-                }
-                return errors
+                alert(`${error.response.data}`) }
             }}
           >
            <Form className="mt-8 space-y-6" >
-              <div className="rounded-md shadow-sm -space-y-px">
+              <div className="rounded-md shadow-sm space-y-px">
                 <div>
+                <label htmlFor="name" className="form-label inline-block mb-2 text-indigo-700">Nome</label>
                   <Field
                     id="name"
                     name="name"
-                    placeholder="Nome"
+                    placeholder="João"
                     type="text"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
+                <label htmlFor="lastName" className="form-label inline-block mb-2 text-indigo-700 mt-3">Sobrenome</label>
                   <Field
                     id="lastName"
                     name="lastName"
-                    placeholder="Sobrenome"
+                    placeholder="da Silva"
                     type="text"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
+                <label htmlFor="birthdate" className="form-label inline-block mb-2 text-indigo-700 mt-3">Data de Nascimento</label>
                   <Field
                     id="birthdate"
                     name="birthdate"
-                    placeholder="Data de nascimento"
                     type="date"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
+                <label htmlFor="cpf" className="form-label inline-block mb-2 text-indigo-700 mt-3">CPF (com pontos e traço)</label>
                   <Field
                     id="cpf"
                     name="cpf"
-                    placeholder="CPF"
+                    placeholder="Ex: 000.000.000-00"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
-                  <ErrorMessage name="cpf">{msg => toast.error(`${msg}`)}</ErrorMessage>
                 </div>
                 <div>
+                <label htmlFor="RG" className="form-label inline-block mb-2 text-indigo-700 mt-3">RG (com pontos e traço)</label>
                   <Field
                     id="rg"
                     name="rg"
-                    placeholder="RG"
+                    placeholder="Ex: 00.000.000-0"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
-                  <Field as="Select"
+                <label htmlFor="rgUF" className="form-label inline-block mb-2 text-indigo-700 mt-3">UF (RG)</label>
+                  <Field as="select"
                     id="rgUF"
                     name="rgUF"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   >
+                    <option value="" disabled>Estado</option>
                     {arrayDeEstados.map((cE) => { return <option key={cE} value={`${cE}`}>{cE}</option> })}
                   </Field>
                 </div>
                 <div>
+                <label htmlFor="phone" className="form-label inline-block mb-2 text-indigo-700 mt-3">Telefone</label>
                   <Field
                     id="phone"
                     name="phone"
@@ -152,10 +140,11 @@ export default function SignUp() {
                   />
                 </div>
                 <div>
+                <label htmlFor="phone" className="form-label inline-block mb-2 text-indigo-700 mt-3">Endereço</label>
                   <Field
                     id="address.street"
                     name="address.street"
-                    placeholder="Rua"
+                    placeholder="Rua (Ex: Rua das Flores)"
                     type="text"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -165,7 +154,7 @@ export default function SignUp() {
                   <Field
                     id="address.number"
                     name="address.number"
-                    placeholder="Número"
+                    placeholder="Número (Ex: 94)"
                     type="number"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -175,7 +164,7 @@ export default function SignUp() {
                   <Field
                     id="address.district"
                     name="address.district"
-                    placeholder="Distrito"
+                    placeholder="Distrito/Bairro (Ex: Centro)"
                     type="text"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -185,7 +174,7 @@ export default function SignUp() {
                   <Field
                     id="address.city"
                     name="address.city"
-                    placeholder="Cidade"
+                    placeholder="Cidade (Ex: São Paulo)"
                     type="text"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -195,24 +184,26 @@ export default function SignUp() {
                   <Field
                     id="address.zipcode"
                     name="address.zipcode"
-                    placeholder="CEP"
+                    placeholder="CEP com traço (Ex: 00000-000)"
                     required={true}
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
                 </div>
                 <div>
                   <div>
-                    <Field as="Select"
+                    <Field as="select"
                       id="address.state"
                       name="address.state"
                       required={true}
                       className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     >
+                    <option value="" disabled>Estado</option>
                       {arrayDeEstados.map((cE) => { return <option key={cE} value={`${cE}`}>{cE}</option> })}
                     </Field>
                   </div>
                 </div>
                 <div>
+                <label htmlFor="phone" className="form-label inline-block mb-2 text-indigo-700 mt-3">Conta</label>
                   <Field
                     id="email"
                     name="email"
@@ -229,7 +220,7 @@ export default function SignUp() {
                     placeholder="Senha"
                     type="password"
                     required={true}
-                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                    className="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   />
                 </div>
               </div>

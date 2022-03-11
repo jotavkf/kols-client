@@ -44,9 +44,13 @@ export default function Dashboard() {
       <div className="flex justify-between max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
         <button type="button" className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><Link href={`/business/create-business`}> + CRIAR UMA EMPRESA</Link></button>
+        <button type="button" className=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"><Link href={`/business/user`}> Ver Usuário</Link></button>
       </div>
     </header>
     <main>
+
+
+
       <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
         {/* Replace with your content */}
         <div className="flex justify-evenly px-4 py-6 sm:px-0">
