@@ -93,7 +93,7 @@ export default function Navbar(props) {
                           <Link
                             href="/"
                           >
-                            <button onClick={() => {localStorage.removeItem('loggedInUser')}} className={classNames(active ? 'bg-emerald-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>Sign out</button>
+                            <button onClick={() => {localStorage.removeItem('loggedInUser')}} className={classNames(active ? 'bg-emerald-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>Sair</button>
                           </Link>
                         )}
                       </Menu.Item>
