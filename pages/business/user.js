@@ -1,7 +1,9 @@
 import { api } from "../api/api";
-import NavbarDash from "../../components/NavbarDash";
+import Navbar from "../../components/Navbar";
 import { Formik, Form, Field } from 'formik';
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 
 
 function User() {
@@ -28,7 +30,9 @@ function User() {
 
     return (
         <>
-            <NavbarDash />
+            <Navbar
+                nav={{ name: 'Dashboard', href: '/business', current: true }}
+            />
             {!isLoading &&
                 <>
                     <div key={user._id} className="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -292,12 +296,25 @@ function User() {
                             </div>
 
                             <div className="hidden sm:block" aria-hidden="true">
-                                <div className="py-5">
+                                <div className="py-2">
                                     <div className="border-t border-gray-200" />
                                 </div>
                             </div>
 
                         </>}
+                    {user.business.map((cE) => {
+                        return (
+                            <>
+                                {!cE.businessIsActive &&
+                                    <div className="flex items-center justify-around m-5">
+                                        <div className="text-lg">Empresa Desativa: </div>
+                                        <div>{cE.name} CNPJ:{cE.cnpj}</div>
+                                        <button className="inline-block px-6 py-2.5 bg-emerald-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-emerald-700 hover:shadow-lg focus:bg-emerald-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-emerald-800 active:shadow-lg transition duration-150 ease-in-out"><Link href={`/business/active/${cE._id}`}>Ativar empresa!</Link></button>
+                                    </div>
+                                }
+                            </>
+                        )
+                    })}
                 </>}
 
         </>);

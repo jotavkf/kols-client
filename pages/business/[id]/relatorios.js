@@ -19,6 +19,37 @@ function Report() {
   return (
     <>
       <NavbarBusiness />
+      <div className="flex flex-col place-content-center flex-wrap">
+        <div className="flex flex-col items-center border border-slate-200 m-2 shadow-md">
+          <h2>Esses produtos estão abaixo do seu ponto de pedido.</h2>
+          <Chart
+            height={"410px"}
+            width={"559px"}
+            chartId={"622a7e59-3d53-43cb-8393-14f3e5eb28bb"}
+            filter={""}
+          />
+        </div>
+        <div className="flex flex-col items-center border border-slate-200 m-2 shadow-md">
+          <h2>Essa é a margem de lucro de todos os produtos em estoque.</h2>
+          <h4>A conta é feita apartir do valor de venda e compra inseridos na criação do produto.</h4>
+          <Chart
+            height={"410px"}
+            width={"938px"}
+            chartId={"6228fe16-5281-4d8a-8e50-020fbb582356"}
+            filter={""}
+          />
+        </div>
+        <div className="flex flex-col items-center border border-slate-200 m-2 shadow-md">
+          <h2>Soma dos valores e das quantidades de produtos vendidos em um dia.</h2>
+          <Chart
+            height={"410px"}
+            width={"559px"}
+            chartId={"62290680-9d1d-4e8f-883f-3b41b3239265"}
+            filter={""}
+          />
+        </div>
+        <div className="flex flex-col items-center border border-slate-200 m-2 shadow-md">
+          <h2>Soma dos valores e das quantidades de produtos comprados em um dia.</h2>
 
       <div style={{ display: "flex" }}>
         <Chart
