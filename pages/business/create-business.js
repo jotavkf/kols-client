@@ -8,7 +8,8 @@ function CreateBusiness() {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+      nav={{ name: 'Dashboard', href: '/business', current: true }} />
 
       <div className="hidden sm:block" aria-hidden="true">
         <div className="py-5">

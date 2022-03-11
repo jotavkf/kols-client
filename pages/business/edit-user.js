@@ -31,7 +31,9 @@ function EditUser() {
 
     return (
         <>
-            <Navbar />
+            <Navbar 
+                nav={{ name: 'Dashboard', href: '/business', current: true }}
+            />
             {!isLoading &&
                 <>
                     <div className="hidden sm:block" aria-hidden="true">

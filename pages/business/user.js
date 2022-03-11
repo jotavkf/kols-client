@@ -28,7 +28,9 @@ function User() {
 
     return (
         <>
-            <Navbar />
+            <Navbar 
+                nav={{ name: 'Dashboard', href: '/business', current: true }}
+            />
             {!isLoading &&
                 <>
                     <div key={user._id} className="bg-white shadow overflow-hidden sm:rounded-lg">
