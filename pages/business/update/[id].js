@@ -88,6 +88,7 @@ export default function BusinessUpdate() {
                     try {
 
                       await api.patch(`/business/update/${id}`, values);
+                      router.push(`/business/${id}`)
                     } catch (e) { console.error(e) }
                   }}>
                   <Form>

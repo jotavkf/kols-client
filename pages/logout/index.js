@@ -18,9 +18,10 @@ function Logout() {
         removeToken();
     }, [])
 
-    return (<>
-        Você foi deslogado!
-    </>);
+    return (
+        <>
+            <h1>Você foi deslogado!</h1>
+        </>);
 }
 
 export default Logout;
