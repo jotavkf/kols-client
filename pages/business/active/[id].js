@@ -22,6 +22,9 @@ function ActiveUser() {
                 const response = await api.patch(`/business/${id}/active-business`);
                 setBusiness({ ...response.data });
                 setIsloading(false)
+                setTimeout(() => {
+                    router.push("/business")
+                }, 3000);
             } catch (error) {
                 console.error(error);
             }
@@ -33,10 +36,8 @@ function ActiveUser() {
 
     return (
         <><NavbarBusiness />
-            {!isLoading && `sua conta foi ativada! ${business.name}`}
-
-
-
+            {!isLoading &&
+                <div className="text-3xl font-bold text-gray-900">Sua conta foi ativada com sucesso! Você será redirecionado para a Dashboard!</div>}
         </>);
 }
 
